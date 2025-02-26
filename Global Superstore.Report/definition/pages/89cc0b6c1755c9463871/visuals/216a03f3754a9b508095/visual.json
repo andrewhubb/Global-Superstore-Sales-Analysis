@@ -1,0 +1,17 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.5.0/schema.json",
+  "name": "216a03f3754a9b508095",
+  "position": {
+    "x": 1085.5994684519471,
+    "y": 0,
+    "z": 0,
+    "height": 144.35669988452162,
+    "width": 197.51834210109681,
+    "tabOrder": 21004
+  },
+  "visualGroup": {
+    "displayName": "Profit",
+    "groupMode": "ScaleMode"
+  },
+  "parentGroupName": "fe44178aa9fc1f712656"
+}

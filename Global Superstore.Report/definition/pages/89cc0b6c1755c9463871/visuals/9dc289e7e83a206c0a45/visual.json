@@ -1,0 +1,17 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.5.0/schema.json",
+  "name": "9dc289e7e83a206c0a45",
+  "position": {
+    "x": 432.35105427483859,
+    "y": 0,
+    "z": 3000,
+    "height": 147.0751892562337,
+    "width": 198.31487104914245,
+    "tabOrder": 9000
+  },
+  "visualGroup": {
+    "displayName": "Discounts",
+    "groupMode": "ScaleMode"
+  },
+  "parentGroupName": "fe44178aa9fc1f712656"
+}

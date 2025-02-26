@@ -1,0 +1,948 @@
+table '_All Measures'
+	lineageTag: 565862b8-1ae4-46ad-a3bb-97b36bc275eb
+
+	measure 'No of Customers' =
+			
+			COUNTROWS(
+			    Customer
+			)
+		formatString: #,0
+		displayFolder: Total
+		lineageTag: 4fb9145c-b90a-453a-8785-00a0acc53358
+
+	measure 'No of Orders' =
+			
+			DISTINCTCOUNT(
+			    superstore[Order.ID]
+			)
+		formatString: #,0
+		displayFolder: Total
+		lineageTag: 9914abc8-4224-4b85-9c20-6375f8892ee3
+
+	measure 'No of Products' =
+			
+			DISTINCTCOUNT(
+			    'Product'[Product.ID]
+			)
+		formatString: #,0
+		displayFolder: Total
+		lineageTag: 4e4c96fd-f6ab-4d3c-8ee9-957fc6895d24
+
+	measure 'Gross Sales' =
+			
+			SUM(superstore[Sales])
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Total
+		lineageTag: c8554720-2630-4c9f-89bf-cd18253b78a2
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure '% Profit' =
+			
+			DIVIDE(
+			    [Total Profit],
+			    [Gross Sales],
+			    "-"
+			)
+		formatString: 0%;-0%;0%
+		lineageTag: 8e44d066-e386-436c-b195-0e02aa2252cb
+
+	measure 'Total Profit' =
+			
+			SUM(
+			    superstore[Profit]
+			)
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Total
+		lineageTag: 506e41b7-72e9-4361-8b80-9f78993c5156
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Best customer' =
+			
+			TOPN(1,
+			    VALUES(Customer[Customer.Name]),
+			    [Gross Sales],
+			    DESC
+			)
+		lineageTag: bb9dcee9-c86a-4dba-af6d-420eab9a401a
+
+	measure 'Last Year Sales' = ```
+			
+			TOTALYTD(
+			    [Gross Sales], 
+			    SAMEPERIODLASTYEAR('Calendar'[Date]),
+			    "31/12"
+			)
+			```
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: LY
+		lineageTag: 508a6728-0f33-455e-a68c-99bfd06ea83c
+
+	measure 'This Year Sales' = ```
+			
+			TOTALYTD(
+			    [Gross Sales], 
+			    'Calendar'[Date],
+			    "31/12"
+			)
+			```
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: TY
+		lineageTag: 07c9ac40-e149-479e-bf68-1bfab571c691
+
+	measure 'Check Blank Dates' =
+			
+			SUMX(
+			    'superstore',
+			    IF(ISBLANK(superstore[Order.Date]), 1, 0)
+			)
+		formatString: 0
+		lineageTag: 2ce06fe9-3d82-41d0-8c86-16a36a38fd9a
+
+	measure 'YoY Growth' = ```
+			
+			VAR LYSales  = [Last Year Sales]
+			VAR TYSales = [This Year Sales]
+			VAR Growth = (TYSales - LYSales) / LYSales
+			RETURN
+			IF(
+			    ISBLANK([Last Year Sales]),
+			    "No Sales",
+			    IF(Growth > 0, 
+			        " ▲", 
+			        " ▼") 
+			        & " " &
+			    FORMAT(
+			        Growth,
+			        "0.0%"    
+			    ) 
+			)
+			```
+		displayFolder: YoY
+		lineageTag: bf00bf46-a08a-4530-8089-f867e8543324
+
+	measure 'YoY Growth Colour' = ```
+			
+			VAR LYSales = [Last Year Sales]
+			VAR TYSales = [This Year Sales]
+			VAR Growth = DIVIDE(TYSales - LYSales, LYSales, 0)
+			
+			RETURN
+			SWITCH(
+			    TRUE(),
+			    ISBLANK(LYSales),"#252423",
+			    Growth < 0, "#B60A01",  // Red for negative growth
+			    Growth > 0, "#008D14",  // Green for positive growth
+			    "#252423"  // Default (grey) when growth is exactly 0
+			)
+			
+			```
+		displayFolder: YoY
+		lineageTag: 9c7ca0a5-c9de-4859-86eb-25b1ff31b09b
+
+	measure 'Quantity Sold' =
+			
+			SUM(superstore[Quantity])
+		formatString: #,0
+		displayFolder: Total
+		lineageTag: fe95fc29-b7a1-47f7-91f4-852b7a544f98
+
+	measure 'Last Year Qty Sold' = ```
+			
+			TOTALYTD(
+			    [Quantity Sold], 
+			    SAMEPERIODLASTYEAR('Calendar'[Date]),
+			    "31/12"
+			)
+			```
+		formatString: #,0
+		displayFolder: LY
+		lineageTag: 2542c295-ae18-4a38-9bd2-0c8d4a305c5b
+
+	measure 'This Year Qty Sold' = ```
+			
+			TOTALYTD(
+			    [Quantity Sold], 
+			    'Calendar'[Date],
+			    "31/12"
+			)
+			```
+		formatString: #,0
+		displayFolder: TY
+		lineageTag: a69c51b0-cce5-4b93-a078-f85dc6ecaa91
+
+	measure 'YoY Qty Growth' = ```
+			
+			VAR LYSales  = [Last Year Qty Sold]
+			VAR TYSales = [This Year Qty Sold]
+			VAR Growth = (TYSales - LYSales) / LYSales
+			RETURN
+			IF(
+			    ISBLANK([Last Year Qty Sold]),
+			    "No Qty Sold",
+			    IF(Growth > 0, 
+			        " ▲", 
+			        " ▼") 
+			        & " " &
+			    FORMAT(
+			        Growth,
+			        "0.0%"    
+			    ) 
+			)
+			```
+		displayFolder: YoY
+		lineageTag: 87b2fac2-9df2-4964-999d-d2914f86b3c1
+
+	measure 'YoY Growth Qty Colour' =
+			
+			VAR LYSales = [Last Year Qty Sold]
+			VAR TYSales = [This Year Qty Sold]
+			VAR Growth = DIVIDE(TYSales - LYSales, LYSales, 0)
+			
+			RETURN
+			SWITCH(
+			    TRUE(),
+			    ISBLANK(LYSales),"#252423",
+			    Growth < 0, "#B60A01",  // Red for negative growth
+			    Growth > 0, "#008D14",  // Green for positive growth
+			    "#252423"  // Default (grey) when growth is exactly 0
+			)
+		displayFolder: YoY
+		lineageTag: c7f86306-1c97-42d1-8873-93ea1bf09f44
+
+	measure 'Date Selection' = ```
+			
+			FORMAT(
+			    MIN(
+			        'Calendar'[Date]
+			    ),
+			    "MMM/YY"
+			    ) & 
+			" - " & 
+			FORMAT(
+			    MAX(
+			        'Calendar'[Date]
+			    ),
+			    "MMM/YY"
+			)
+			```
+		lineageTag: fa8fe703-8b8c-49de-b48b-f81a632553f7
+
+	measure 'Avg Shipping Cost %' =
+			
+			DIVIDE(
+			    [Total Shipping],
+			    [Gross Sales]
+			)
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 4ea928a9-8e7b-40d3-aade-b978d925486c
+
+	measure 'Total Shipping' =
+			
+			SUM(
+			    superstore[Shipping.Cost]
+			)
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Total
+		lineageTag: 0f4e32b8-08f7-4286-9991-141f2a7e0998
+
+	measure 'Last Year Avg Shipping Cost %' =
+			
+			CALCULATE(
+			    [Avg Shipping Cost %],
+			    DATEADD('Calendar'[Date], -1, YEAR)
+			)
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: LY
+		lineageTag: 7af51be1-7172-4fcf-afa6-87e263aed087
+
+	measure 'YoY Shipping Growth' = ```
+			
+			VAR LYShipping  = [Last Year Avg Shipping Cost %]
+			VAR TYShipping = [This Year Avg Shipping Cost %]
+			VAR Growth = (TYShipping - LYShipping) / LYShipping
+			RETURN
+			IF(
+			    ISBLANK([Last Year Sales]),
+			    "No Shipping",
+			    IF(Growth > 0, 
+			        " ▲", 
+			        " ▼") 
+			        & " " &
+			    FORMAT(
+			        Growth,
+			        "0.0%"    
+			    ) 
+			)
+			```
+		displayFolder: YoY
+		lineageTag: 1e55b26e-1385-4336-8d81-ef3789e3e276
+
+	measure 'This Year Avg Shipping Cost %' = ```
+			
+			TOTALYTD(
+			    [Avg Shipping Cost %], 
+			    'Calendar'[Date],
+			    "31/12"
+			)
+			```
+		displayFolder: TY
+		lineageTag: 3721b91c-5196-4900-8eae-41de92d36f1e
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'YoY Growth Shipping Colour' =
+			
+			VAR LYShipping = [Last Year Avg Shipping Cost %]
+			VAR TYShipping = [This Year Avg Shipping Cost %]
+			VAR Growth = DIVIDE(TYShipping - LYShipping, LYShipping, 0)
+			
+			RETURN
+			SWITCH(
+			    TRUE(),
+			    ISBLANK(LYShipping),"#252423",
+			    Growth < 0, "#B60A01",  // Red for negative growth
+			    Growth > 0, "#008D14",  // Green for positive growth
+			    "#252423"  // Default (grey) when growth is exactly 0
+			)
+		displayFolder: YoY
+		lineageTag: fa811f34-817b-4767-ad5a-0d0fb5de2aae
+
+	measure 'YoY Profit Growth' = ```
+			
+			VAR LYProfit  = [Last Year Profit]
+			VAR TYProfit = [This Year Profit]
+			VAR Growth = (TYProfit - LYProfit) / LYProfit
+			RETURN
+			IF(
+			    ISBLANK([Last Year Profit]),
+			    "No Profit Info",
+			    IF(Growth > 0, 
+			        " ▲", 
+			        " ▼") 
+			        & " " &
+			    FORMAT(
+			        Growth,
+			        "0.0%"    
+			    ) 
+			)
+			```
+		displayFolder: YoY
+		lineageTag: 0756efc7-9031-47b2-aeb4-e2c92ff78bd0
+
+	measure 'Last Year Profit' = ```
+			
+			TOTALYTD(
+			    [Total Profit], 
+			    SAMEPERIODLASTYEAR('Calendar'[Date]),
+			    "31/12"
+			)
+			```
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: LY
+		lineageTag: 8238e6d6-7793-47dc-ba4f-54431040c6f4
+
+	measure 'This Year Profit' = ```
+			
+			TOTALYTD(
+			    [Total Profit], 
+			    'Calendar'[Date],
+			    "31/12"
+			)
+			```
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		displayFolder: TY
+		lineageTag: ca4674e5-a4db-417e-81cb-f6d62a5b626e
+
+	measure 'YoY Growth Profit Colour' =
+			
+			VAR LYProfit = [Last Year Profit]
+			VAR TYProfit = [This Year Profit]
+			VAR Growth = DIVIDE(TYProfit - LYProfit, LYProfit, 0)
+			
+			RETURN
+			SWITCH(
+			    TRUE(),
+			    ISBLANK(LYProfit),"#252423",
+			    Growth < 0, "#B60A01",  // Red for negative growth
+			    Growth > 0, "#008D14",  // Green for positive growth
+			    "#252423"  // Default (grey) when growth is exactly 0
+			)
+		displayFolder: YoY
+		lineageTag: 50876273-e5ed-438c-8939-7d79f4469bbd
+
+	measure 'Profit Margin' =
+			
+			DIVIDE(
+			    [Total Profit],
+			    [Gross Sales],
+			    0
+			)
+		formatString: 0%;-0%;0%
+		displayFolder: Total
+		lineageTag: ed834b19-4a4a-4101-9df1-93a06b2c72fd
+
+	measure 'Net Sales' =
+			
+			SUM(superstore[Net Sales])
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Total
+		lineageTag: 5985fe4d-68aa-44ee-9521-b450c56e573d
+
+	measure 'Total Discounts' =
+			
+			SUM(
+			    superstore[Discount Value]
+			)
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Total
+		lineageTag: f641ed40-91f0-45fc-8e38-bc8fc37c79fd
+
+	measure 'This Year Discounts' = ```
+			
+			TOTALYTD(
+			    [Total Discounts], 
+			    'Calendar'[Date],
+			    "31/12"
+			)
+			```
+		displayFolder: TY
+		lineageTag: 4f11358b-5456-4186-af57-70b4043ca16c
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Last Year Discounts' = ```
+			
+			TOTALYTD(
+			    [Total Discounts], 
+			    SAMEPERIODLASTYEAR('Calendar'[Date]),
+			    "31/12"
+			)
+			```
+		displayFolder: LY
+		lineageTag: 317439a2-636a-42d6-9526-9ec08ff6266a
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'YoY Discount Growth' = ```
+			
+			VAR LYDiscount  = [Last Year Discounts]
+			VAR TYDiscount = [This Year Discounts]
+			VAR Growth = (TYDiscount - LYDiscount) / LYDiscount
+			RETURN
+			IF(
+			    ISBLANK([Last Year Discounts]),
+			    "No Discount Info",
+			    IF(Growth > 0, 
+			        " ▲", 
+			        " ▼") 
+			        & " " &
+			    FORMAT(
+			        Growth,
+			        "0.0%"    
+			    ) 
+			)
+			```
+		displayFolder: YoY
+		lineageTag: 10676664-4cc3-4ae5-95f0-b4cf1ffee2da
+
+	measure 'YoY Growth Discount Colour' =
+			
+			VAR LYDiscount = [Last Year Discounts]
+			VAR TYDiscount = [This Year Discounts]
+			VAR Growth = DIVIDE(TYDiscount - LYDiscount, LYDiscount, 0)
+			
+			RETURN
+			SWITCH(
+			    TRUE(),
+			    ISBLANK(LYDiscount),"#252423",
+			    Growth > 0 , "#B60A01",  // Red for positive growth
+			    Growth < 0, "#008D14",  // Green for negative growth
+			    "#252423"  // Default (grey) when growth is exactly 0
+			)
+		displayFolder: YoY
+		lineageTag: ef291d6f-13de-47a0-809e-2029c8d26eb5
+
+	measure 'Last Year Net Sales' = ```
+			
+			TOTALYTD(
+			    [Net Sales], 
+			    SAMEPERIODLASTYEAR('Calendar'[Date]),
+			    "31/12"
+			)
+			```
+		displayFolder: LY
+		lineageTag: 638e1695-2e6f-4473-a99d-abf9e2bd05bc
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'This Year Net Sales' = ```
+			
+			TOTALYTD(
+			    [Net Sales], 
+			    'Calendar'[Date],
+			    "31/12"
+			)
+			```
+		displayFolder: TY
+		lineageTag: ae328942-b222-4de3-bb4c-f99da9d043e6
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'YoY Net Growth' = ```
+			
+			VAR LYSales  = [Last Year Net Sales]
+			VAR TYSales = [This Year Net Sales]
+			VAR Growth = (TYSales - LYSales) / LYSales
+			RETURN
+			IF(
+			    ISBLANK([Last Year Net Sales]),
+			    "No Sales",
+			    IF(Growth > 0, 
+			        " ▲", 
+			        " ▼") 
+			        & " " &
+			    FORMAT(
+			        Growth,
+			        "0.0%"    
+			    ) 
+			)
+			```
+		displayFolder: YoY
+		lineageTag: 0739a208-5d3f-42f4-9d3d-053f9fc8bcd5
+
+	measure 'YoY Net Growth Colour' = ```
+			
+			VAR LYSales = [Last Year Net Sales]
+			VAR TYSales = [This Year Net Sales]
+			VAR Growth = DIVIDE(TYSales - LYSales, LYSales, 0)
+			
+			RETURN
+			SWITCH(
+			    TRUE(),
+			    ISBLANK(LYSales),"#252423",
+			    Growth < 0, "#B60A01",  // Red for negative growth
+			    Growth > 0, "#008D14",  // Green for positive growth
+			    "#252423"  // Default (grey) when growth is exactly 0
+			)
+			
+			```
+		displayFolder: YoY
+		lineageTag: 014e28f7-2860-4163-85cd-3b88a460c1f8
+
+	measure 'Total COGS' =
+			
+			SUM(
+			    superstore[COGS]
+			)
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Total
+		lineageTag: 49ed127a-387c-45c7-b39e-8f1d14139691
+
+	measure 'This Year COGS' = ```
+			
+			TOTALYTD(
+			    [Total COGS], 
+			    'Calendar'[Date],
+			    "31/12"
+			)
+			```
+		formatString: 0
+		displayFolder: TY
+		lineageTag: 7fc0a085-3152-46c7-862c-e6957df38f05
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure 'Last Year COGS' = ```
+			
+			TOTALYTD(
+			    [Total COGS], 
+			    SAMEPERIODLASTYEAR('Calendar'[Date]),
+			    "31/12"
+			)
+			```
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: LY
+		lineageTag: 474ff898-bec6-4e69-be8d-872b190f4476
+
+	measure 'YoY COGS Growth' = ```
+			
+			VAR LYCogs  = [Last Year COGS]
+			VAR TYCogs = [This Year COGS]
+			VAR Growth = (TYCogs - LYCogs) / LYCogs
+			RETURN
+			IF(
+			    ISBLANK([Last Year COGS]),
+			    "No Cost of Goods",
+			    IF(Growth > 0, 
+			        " ▲", 
+			        " ▼") 
+			        & " " &
+			    FORMAT(
+			        Growth,
+			        "0.0%"    
+			    ) 
+			)
+			```
+		displayFolder: YoY
+		lineageTag: 2b508053-5f2b-4a7f-af10-5a8be58c7b80
+
+	measure 'YoY COGS Growth Colour' = ```
+			
+			VAR LYCogs = [Last Year COGS]
+			VAR TYCogs = [This Year COGS]
+			VAR Growth = DIVIDE(TYCogs - LYCogs, LYCogs, 0)
+			
+			RETURN
+			SWITCH(
+			    TRUE(),
+			    ISBLANK(LYCogs),"#252423",
+			    Growth < 0, "#B60A01",  // Red for negative growth
+			    Growth > 0, "#008D14",  // Green for positive growth
+			    "#252423"  // Default (grey) when growth is exactly 0
+			)
+			
+			```
+		displayFolder: YoY
+		lineageTag: 721286ff-9938-4a4c-bc97-bf9108eb94aa
+
+	measure 'Profit Margin Formatted' = ```
+			
+			IF(
+			    [Profit Margin] > 0,
+			    "+" & 
+			    FORMAT([Profit Margin],"0%"),
+			    FORMAT([Profit Margin],"0%")
+			)
+			```
+		displayFolder: Total
+		lineageTag: 0a05520b-9da0-428c-8b1e-62a296e62d17
+
+	measure 'Net Sales By Market Bar Colours' = ```
+			
+			VAR TopValue = 
+			MAXX(
+			    ALL('Location'[Market]),
+			    CALCULATE([Net Sales])
+			)
+			RETURN
+			IF(
+			    [Net Sales] = TopValue,
+			    "#083d6c",
+			    "#CCCCCC"
+			)
+			```
+		displayFolder: Bar Colours\Market
+		lineageTag: f63a1b33-10db-49ec-8976-b15c8a0d5c4c
+
+	measure 'Qty Sold by Market Bar Colours' = ```
+			
+			VAR TopValue = 
+			MAXX(
+			    ALL('Location'[Market]),
+			    CALCULATE([Quantity Sold])
+			)
+			RETURN
+			IF(
+			    [Quantity Sold] = TopValue,
+			    "#EE6C4D",
+			    "#CCCCCC"
+			)
+			```
+		displayFolder: Bar Colours\Market
+		lineageTag: 1065ccd5-8f4c-4511-b3ed-f9efa9473479
+
+	measure 'Profit by Market Bar Colours' = ```
+			
+			VAR TopValue = 
+			MAXX(
+			    ALL('Location'[Market]),
+			    CALCULATE([Total Profit])
+			)
+			RETURN
+			IF(
+			    [Total Profit] = TopValue,
+			    "#049570",
+			    "#CCCCCC"
+			)
+			```
+		displayFolder: Bar Colours\Market
+		lineageTag: 39bfbfa8-49b3-47c5-82de-279ee32afe28
+
+	measure 'COGS By Market Bar Colours' = ```
+			
+			VAR TopValue = 
+			MAXX(
+			    ALL('Location'[Market]),
+			    CALCULATE([Total COGS])
+			)
+			RETURN
+			IF(
+			    [Total COGS] = TopValue,
+			    "#E92F42",
+			    "#CCCCCC"
+			)
+			```
+		displayFolder: Bar Colours\Market
+		lineageTag: 2865a59e-64f6-4ef6-b98d-210055c40e66
+
+	measure 'COGS By Segment Bar Colours' = ```
+			
+			VAR TopValue = 
+			MAXX(
+			    ALL('Product'[Segment]),
+			    CALCULATE([Total COGS])
+			)
+			RETURN
+			IF(
+			    [Total COGS] = TopValue,
+			    "#E92F42",
+			    "#CCCCCC"
+			)
+			```
+		displayFolder: Bar Colours\Segment
+		lineageTag: cf621d55-594b-4919-abcb-454e71bea3c9
+
+	measure 'Net Sales By Segment Bar Colours' = ```
+			
+			VAR TopValue = 
+			MAXX(
+			    ALL('Product'[Segment]),
+			    CALCULATE([Net Sales])
+			)
+			RETURN
+			IF(
+			    [Net Sales] = TopValue,
+			    "#083d6c",
+			    "#CCCCCC"
+			)
+			```
+		displayFolder: Bar Colours\Segment
+		lineageTag: 587d733e-bcf5-4114-8056-5958fcfd8ed5
+
+	measure 'Profit by Segment Bar Colours' = ```
+			
+			VAR TopValue = 
+			MAXX(
+			    ALL('Product'[Segment]),
+			    CALCULATE([Total Profit])
+			)
+			RETURN
+			IF(
+			    [Total Profit] = TopValue,
+			    "#049570",
+			    "#CCCCCC"
+			)
+			```
+		displayFolder: Bar Colours\Segment
+		lineageTag: 05b1994e-fd16-4bf4-b93d-018671d18d68
+
+	measure 'Qty Sold by Segment Bar Colours' = ```
+			
+			VAR TopValue = 
+			MAXX(
+			    ALL('Product'[Segment]),
+			    CALCULATE([Quantity Sold])
+			)
+			RETURN
+			IF(
+			    [Quantity Sold] = TopValue,
+			    "#EE6C4D",
+			    "#CCCCCC"
+			)
+			```
+		displayFolder: Bar Colours\Segment
+		lineageTag: 2c65fcfe-9a2e-42e0-958a-8d302fc74c22
+
+	measure 'COGS By Category Bar Colours' = ```
+			
+			VAR TopValue = 
+			MAXX(
+			    ALL('Product'[Category]),
+			    CALCULATE([Total COGS])
+			)
+			RETURN
+			IF(
+			    [Total COGS] = TopValue,
+			    "#E92F42",
+			    "#CCCCCC"
+			)
+			```
+		displayFolder: Bar Colours\Category
+		lineageTag: 28a31cf3-ac78-4596-b17d-9e80cb0a29d3
+
+	measure 'Qty Sold by Category Bar Colours' = ```
+			
+			VAR TopValue = 
+			MAXX(
+			    ALL('Product'[Category]),
+			    CALCULATE([Quantity Sold])
+			)
+			RETURN
+			IF(
+			    [Quantity Sold] = TopValue,
+			    "#EE6C4D",
+			    "#CCCCCC"
+			)
+			```
+		displayFolder: Bar Colours\Category
+		lineageTag: 0c82164d-f2b7-4ab4-938a-0b2c980c49a1
+
+	measure 'Profit by Category Bar Colours' = ```
+			
+			VAR TopValue = 
+			MAXX(
+			    ALL('Product'[Category]),
+			    CALCULATE([Total Profit])
+			)
+			RETURN
+			IF(
+			    [Total Profit] = TopValue,
+			    "#049570",
+			    "#CCCCCC"
+			)
+			```
+		displayFolder: Bar Colours\Category
+		lineageTag: b269da2c-8bc2-4758-b7e7-3533e5f2f257
+
+	measure 'Net Sales By Category Bar Colours' = ```
+			
+			VAR TopValue = 
+			MAXX(
+			    ALL('Product'[Category]),
+			    CALCULATE([Net Sales])
+			)
+			RETURN
+			IF(
+			    [Net Sales] = TopValue,
+			    "#083d6c",
+			    "#CCCCCC"
+			)
+			```
+		displayFolder: Bar Colours\Category
+		lineageTag: ff8ec6f3-5863-4f40-9817-16101c0ef603
+
+	measure 'COGS By SubCategory Bar Colours' = ```
+			
+			VAR TopValue = 
+			MAXX(
+			    ALL('Product'[Sub.Category]),
+			    CALCULATE([Total COGS])
+			)
+			RETURN
+			IF(
+			    [Total COGS] = TopValue,
+			    "#E92F42",
+			    "#CCCCCC"
+			)
+			```
+		displayFolder: Bar Colours\SubCategory
+		lineageTag: ee3aa3b8-2e70-4ea0-b032-53e3b0d76232
+
+	measure 'Profit by SubCategory Bar Colours' = ```
+			
+			VAR TopValue = 
+			MAXX(
+			    ALL('Product'[Sub.Category]),
+			    CALCULATE([Total Profit])
+			)
+			VAR MinValue = 
+			MINX(
+			    ALL('Product'[Sub.Category]),
+			    CALCULATE([Total Profit])
+			)
+			
+			RETURN
+			SWITCH(
+			    TRUE(),
+			    [Total Profit] = TopValue, "#049570",
+			    AND([Total Profit] = MinValue, [Total Profit] < 0), "#E92F42",
+			    "#CCCCCC"
+			)
+			
+			```
+		displayFolder: Bar Colours\SubCategory
+		lineageTag: 962b6ba1-b6e4-4ac0-9b58-47ab0c41c5da
+
+	measure 'Qty Sold by SubCategory Bar Colours' = ```
+			
+			VAR TopValue = 
+			MAXX(
+			    ALL('Product'[Sub.Category]),
+			    CALCULATE([Quantity Sold])
+			)
+			RETURN
+			IF(
+			    [Quantity Sold] = TopValue,
+			    "#EE6C4D",
+			    "#CCCCCC"
+			)
+			```
+		displayFolder: Bar Colours\SubCategory
+		lineageTag: 42a0b03b-0b3e-4d49-b3de-c990d82fe445
+
+	measure 'Net Sales By SubCategory Bar Colours' = ```
+			
+			VAR TopValue = 
+			MAXX(
+			    ALL('Product'[Sub.Category]),
+			    CALCULATE([Net Sales])
+			)
+			RETURN
+			IF(
+			    [Net Sales] = TopValue,
+			    "#083d6c",
+			    "#CCCCCC"
+			)
+			```
+		displayFolder: Bar Colours\SubCategory
+		lineageTag: 07ada0ce-eb60-4285-a4b2-b03455347fa9
+
+	measure 'Profit YOY%' = ```
+			
+			IFERROR (
+			    CALCULATE (
+			        ( 
+			            [This Year Profit] - 
+			            ( [Last Year Profit] )
+			        )
+			        / 
+			        ABS ( 
+			            [Last Year Profit] 
+			        ),
+			        ALLSELECTED(
+			            'Calendar'[Year]
+			        )
+			    ),
+			    1
+			)
+			```
+		lineageTag: ceaf085d-acf2-4ba5-b701-02fbdf38e8c6
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Profit YOY% Formatted' = ```
+			
+			    "YOY: " & 
+			    FORMAT(
+			        [Profit YOY%],
+			        "00%"
+			    )
+			```
+		lineageTag: 9aa8efe0-9ea6-416a-a4ad-7cd815977c86
+
+	partition '_All Measures' = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i44FAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Column1 = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Column1", type text}}),
+				    #"Removed Columns" = Table.RemoveColumns(#"Changed Type",{"Column1"})
+				in
+				    #"Removed Columns"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

@@ -1,0 +1,297 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/report/1.2.0/schema.json",
+  "themeCollection": {
+    "baseTheme": {
+      "name": "CY24SU10",
+      "reportVersionAtImport": "5.61",
+      "type": "SharedResources"
+    },
+    "customTheme": {
+      "name": "Next_Level_PBI_Reports_-_Theme32680659856964134.json",
+      "reportVersionAtImport": "5.61",
+      "type": "RegisteredResources"
+    }
+  },
+  "layoutOptimization": "None",
+  "objects": {
+    "section": [
+      {
+        "properties": {
+          "verticalAlignment": {
+            "expr": {
+              "Literal": {
+                "Value": "'Top'"
+              }
+            }
+          }
+        }
+      }
+    ],
+    "outspacePane": [
+      {
+        "properties": {
+          "expanded": {
+            "expr": {
+              "Literal": {
+                "Value": "true"
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "resourcePackages": [
+    {
+      "name": "SharedResources",
+      "type": "SharedResources",
+      "items": [
+        {
+          "name": "CY24SU10",
+          "path": "BaseThemes/CY24SU10.json",
+          "type": "BaseTheme"
+        }
+      ]
+    },
+    {
+      "name": "RegisteredResources",
+      "type": "RegisteredResources",
+      "items": [
+        {
+          "name": "Workspace_X_Logo_-_Transparent17468032800104694.png",
+          "path": "Workspace_X_Logo_-_Transparent17468032800104694.png",
+          "type": "Image"
+        },
+        {
+          "name": "ICO_Units_Sold_Gray5030293484733734.svg",
+          "path": "ICO_Units_Sold_Gray5030293484733734.svg",
+          "type": "Image"
+        },
+        {
+          "name": "test_image23184686999444026.jpg",
+          "path": "test_image23184686999444026.jpg",
+          "type": "Image"
+        },
+        {
+          "name": "ICO_Gross_Profit_Gray39401056746072016.svg",
+          "path": "ICO_Gross_Profit_Gray39401056746072016.svg",
+          "type": "Image"
+        },
+        {
+          "name": "ICO_Profit_Gray15432114044724576.svg",
+          "path": "ICO_Profit_Gray15432114044724576.svg",
+          "type": "Image"
+        },
+        {
+          "name": "ICO_Discounts_Gray718397702420819.svg",
+          "path": "ICO_Discounts_Gray718397702420819.svg",
+          "type": "Image"
+        },
+        {
+          "name": "ICO_Net_Sales_Gray40533990056244207.svg",
+          "path": "ICO_Net_Sales_Gray40533990056244207.svg",
+          "type": "Image"
+        },
+        {
+          "name": "ICO_COGs_Gray7948499492850551.svg",
+          "path": "ICO_COGs_Gray7948499492850551.svg",
+          "type": "Image"
+        },
+        {
+          "name": "Next_Level_PBI_Reports_-_Theme32680659856964134.json",
+          "path": "Next_Level_PBI_Reports_-_Theme32680659856964134.json",
+          "type": "CustomTheme"
+        },
+        {
+          "name": "ICO_Net_Sales_Gray7817341682730121.svg",
+          "path": "ICO_Net_Sales_Gray7817341682730121.svg",
+          "type": "Image"
+        },
+        {
+          "name": "ICO_Units_Sold_Gray5925916837793319.svg",
+          "path": "ICO_Units_Sold_Gray5925916837793319.svg",
+          "type": "Image"
+        },
+        {
+          "name": "ICO_COGs_Gray42336563351188183.svg",
+          "path": "ICO_COGs_Gray42336563351188183.svg",
+          "type": "Image"
+        },
+        {
+          "name": "ICO_Units_Sold_Gray8958337044527696.svg",
+          "path": "ICO_Units_Sold_Gray8958337044527696.svg",
+          "type": "Image"
+        },
+        {
+          "name": "ICO_Net_Sales_Gray5387408216301295.svg",
+          "path": "ICO_Net_Sales_Gray5387408216301295.svg",
+          "type": "Image"
+        },
+        {
+          "name": "ICO_Profit_Gray9217946976393883.svg",
+          "path": "ICO_Profit_Gray9217946976393883.svg",
+          "type": "Image"
+        },
+        {
+          "name": "ICO_COGs_Gray61671326323397.svg",
+          "path": "ICO_COGs_Gray61671326323397.svg",
+          "type": "Image"
+        },
+        {
+          "name": "ICO_Active_View_White1547239035817869.svg",
+          "path": "ICO_Active_View_White1547239035817869.svg",
+          "type": "Image"
+        },
+        {
+          "name": "ICO_Category_Gray6700849187122784.svg",
+          "path": "ICO_Category_Gray6700849187122784.svg",
+          "type": "Image"
+        },
+        {
+          "name": "ICO_Category_Black9319265093738278.svg",
+          "path": "ICO_Category_Black9319265093738278.svg",
+          "type": "Image"
+        },
+        {
+          "name": "ICO_Category_White18795210067706392.svg",
+          "path": "ICO_Category_White18795210067706392.svg",
+          "type": "Image"
+        },
+        {
+          "name": "ICO_Category_White6036249021182407.svg",
+          "path": "ICO_Category_White6036249021182407.svg",
+          "type": "Image"
+        },
+        {
+          "name": "ICO_Market_White7613223460442482.svg",
+          "path": "ICO_Market_White7613223460442482.svg",
+          "type": "Image"
+        },
+        {
+          "name": "ICO_Market_White08028069013193173.svg",
+          "path": "ICO_Market_White08028069013193173.svg",
+          "type": "Image"
+        },
+        {
+          "name": "ICO_Market_Gray1045739189942465.svg",
+          "path": "ICO_Market_Gray1045739189942465.svg",
+          "type": "Image"
+        },
+        {
+          "name": "ICO_Market_Black15076864037572957.svg",
+          "path": "ICO_Market_Black15076864037572957.svg",
+          "type": "Image"
+        },
+        {
+          "name": "ICO_Calendar_Gray8351584012494355.svg",
+          "path": "ICO_Calendar_Gray8351584012494355.svg",
+          "type": "Image"
+        },
+        {
+          "name": "ICO_Calendar_Black6644031635547187.svg",
+          "path": "ICO_Calendar_Black6644031635547187.svg",
+          "type": "Image"
+        },
+        {
+          "name": "ICO_Furniture_Gray30440360916530484.svg",
+          "path": "ICO_Furniture_Gray30440360916530484.svg",
+          "type": "Image"
+        },
+        {
+          "name": "ICO_Furniture_Black7672234893120038.svg",
+          "path": "ICO_Furniture_Black7672234893120038.svg",
+          "type": "Image"
+        },
+        {
+          "name": "ICO_Segment_2_Black3879310686340329.svg",
+          "path": "ICO_Segment_2_Black3879310686340329.svg",
+          "type": "Image"
+        },
+        {
+          "name": "ICO_Segment_2_Gray6911684507399787.svg",
+          "path": "ICO_Segment_2_Gray6911684507399787.svg",
+          "type": "Image"
+        },
+        {
+          "name": "ICO_Office_Supplies_Gray728037689873603.svg",
+          "path": "ICO_Office_Supplies_Gray728037689873603.svg",
+          "type": "Image"
+        },
+        {
+          "name": "ICO_Office_Supplies_Black9464681957236141.svg",
+          "path": "ICO_Office_Supplies_Black9464681957236141.svg",
+          "type": "Image"
+        },
+        {
+          "name": "ICO_Technology_Gray21472005911860026.svg",
+          "path": "ICO_Technology_Gray21472005911860026.svg",
+          "type": "Image"
+        },
+        {
+          "name": "ICO_Technology_Black2871009179977695.svg",
+          "path": "ICO_Technology_Black2871009179977695.svg",
+          "type": "Image"
+        },
+        {
+          "name": "ICO_Segment_2_White9488875928293603.svg",
+          "path": "ICO_Segment_2_White9488875928293603.svg",
+          "type": "Image"
+        },
+        {
+          "name": "ICO_Segment_2_White22173768706037467.svg",
+          "path": "ICO_Segment_2_White22173768706037467.svg",
+          "type": "Image"
+        },
+        {
+          "name": "ICO_Active_View_White6089326368125145.svg",
+          "path": "ICO_Active_View_White6089326368125145.svg",
+          "type": "Image"
+        },
+        {
+          "name": "ICO_Period_White526316461875707.svg",
+          "path": "ICO_Period_White526316461875707.svg",
+          "type": "Image"
+        },
+        {
+          "name": "ICO_Period_White8182856219221581.svg",
+          "path": "ICO_Period_White8182856219221581.svg",
+          "type": "Image"
+        },
+        {
+          "name": "ICO_Furniture_White4494044897508993.svg",
+          "path": "ICO_Furniture_White4494044897508993.svg",
+          "type": "Image"
+        },
+        {
+          "name": "ICO_Furniture_White5821409840680591.svg",
+          "path": "ICO_Furniture_White5821409840680591.svg",
+          "type": "Image"
+        },
+        {
+          "name": "ICO_Office_Supplies_White7637921617477028.svg",
+          "path": "ICO_Office_Supplies_White7637921617477028.svg",
+          "type": "Image"
+        },
+        {
+          "name": "ICO_Office_Supplies_White9467371812893806.svg",
+          "path": "ICO_Office_Supplies_White9467371812893806.svg",
+          "type": "Image"
+        }
+      ]
+    }
+  ],
+  "settings": {
+    "useStylableVisualContainerHeader": true,
+    "defaultDrillFilterOtherVisuals": true,
+    "allowChangeFilterTypes": true,
+    "useEnhancedTooltips": true,
+    "useDefaultAggregateDisplayName": true
+  },
+  "slowDataSourceSettings": {
+    "isCrossHighlightingDisabled": false,
+    "isSlicerSelectionsButtonEnabled": false,
+    "isFilterSelectionsButtonEnabled": false,
+    "isFieldWellButtonEnabled": false,
+    "isApplyAllButtonEnabled": false
+  }
+}

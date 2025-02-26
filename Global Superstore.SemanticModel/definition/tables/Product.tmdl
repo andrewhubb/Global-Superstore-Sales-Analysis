@@ -1,0 +1,60 @@
+table Product
+	lineageTag: 8b8fad1a-6f13-4a37-984a-cb10c1e57229
+
+	column Category
+		dataType: string
+		lineageTag: 48f46cf2-09e4-4f9b-a396-a7d09ef635e7
+		summarizeBy: none
+		sourceColumn: Category
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Product.ID'
+		dataType: string
+		lineageTag: 1f4175cd-c0e5-4b1a-be7f-a26f472f4815
+		summarizeBy: none
+		sourceColumn: Product.ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sub.Category'
+		dataType: string
+		lineageTag: 82150923-9cd1-49f4-82d7-4a8689f78004
+		summarizeBy: none
+		sourceColumn: Sub.Category
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Product.Name'
+		dataType: string
+		lineageTag: 021a47bb-2818-4940-851d-785cd8bfbc1d
+		summarizeBy: none
+		sourceColumn: Product.Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column Segment
+		dataType: string
+		lineageTag: 38ca6c1b-5fa4-4433-b739-87eb1f468963
+		summarizeBy: none
+		sourceColumn: Segment
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Product = m
+		mode: import
+		source =
+				let
+				    Source = superstore_source,
+				    #"Removed Other Columns" = Table.SelectColumns(Source,{"Category", "Product.ID", "Product.Name", "Sub.Category", "Segment"}),
+				    #"Reordered Columns" = Table.ReorderColumns(#"Removed Other Columns",{"Product.ID", "Category", "Sub.Category", "Product.Name", "Segment"}),
+				    #"Sorted Rows" = Table.Sort(#"Reordered Columns",{{"Product.ID", Order.Ascending}}),
+				    #"Removed Duplicates" = Table.Distinct(#"Sorted Rows"),
+				    #"Removed Duplicate Product.ID columns" = Table.Distinct(#"Removed Duplicates", {"Product.ID"})
+				in
+				    #"Removed Duplicate Product.ID columns"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

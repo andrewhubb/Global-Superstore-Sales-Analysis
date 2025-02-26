@@ -1,0 +1,180 @@
+expression 'Folder Path' = "D:\OneDrive - Insightful Tech Consulting\Data\007 - Kaggle\Global Superstore Dataset" meta [IsParameterQuery=true, List={"D:\OneDrive - Insightful Tech Consulting\Data\007 - Kaggle\Global Superstore Dataset"}, DefaultValue="D:\OneDrive - Insightful Tech Consulting\Data\007 - Kaggle\Global Superstore Dataset", Type="Any", IsParameterQueryRequired=true]
+	lineageTag: 8635c473-3bd2-40ab-8359-c7039c096852
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Text
+
+expression superstore_source =
+		let
+		    Source = Csv.Document(File.Contents(#"Folder Path" & "\superstore.csv"),[Delimiter=",", Columns=27, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+		    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+		    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Category", type text}, {"City", type text}, {"Country", type text}, {"Customer.ID", type text}, {"Customer.Name", type text}, {"Discount", Percentage.Type}, {"Market", type text}, {"记录数", Int64.Type}, {"Order.Date", type datetime}, {"Order.ID", type text}, {"Order.Priority", type text}, {"Product.ID", type text}, {"Product.Name", type text}, {"Profit", type number}, {"Quantity", Int64.Type}, {"Region", type text}, {"Row.ID", Int64.Type}, {"Sales", Int64.Type}, {"Segment", type text}, {"Ship.Date", type datetime}, {"Ship.Mode", type text}, {"Shipping.Cost", type number}, {"State", type text}, {"Sub.Category", type text}, {"Year", Int64.Type}, {"Market2", type text}, {"weeknum", Int64.Type}}),
+		    #"Removed Columns" = Table.RemoveColumns(#"Changed Type",{"记录数"}),
+		    #"Renamed Columns" = Table.RenameColumns(#"Removed Columns",{{"Market2", "Market Fullname"}}),
+		    #"Replaced Value" = Table.ReplaceValue(#"Renamed Columns","Africa","EMEA",Replacer.ReplaceValue,{"Market"}),
+		    #"Added 10 Years to Order Date" = Table.AddColumn(#"Replaced Value", "Order.Date.1", each Date.AddYears([Order.Date],10)),
+		    #"Changed Type1" = Table.TransformColumnTypes(#"Added 10 Years to Order Date",{{"Order.Date.1", type date}}),
+		    #"Reordered Columns" = Table.ReorderColumns(#"Changed Type1",{"Category", "City", "Country", "Customer.ID", "Customer.Name", "Discount", "Market", "Order.Date", "Order.Date.1", "Order.ID", "Order.Priority", "Product.ID", "Product.Name", "Profit", "Quantity", "Region", "Row.ID", "Sales", "Segment", "Ship.Date", "Ship.Mode", "Shipping.Cost", "State", "Sub.Category", "Year", "Market Fullname", "weeknum"}),
+		    #"Removed Old Order Date Column" = Table.RemoveColumns(#"Reordered Columns",{"Order.Date"}),
+		    #"Renamed New Order Date Column" = Table.RenameColumns(#"Removed Old Order Date Column",{{"Order.Date.1", "Order.Date"}}),
+		    #"Changed Type2" = Table.TransformColumnTypes(#"Renamed New Order Date Column",{{"Ship.Date", type date}, {"Order.Date", type datetime}}),
+		    #"Added 10 Year to Ship Date" = Table.AddColumn(#"Changed Type2", "Ship.Date.1", each Date.AddYears([Ship.Date],10)),
+		    #"Changed Type3" = Table.TransformColumnTypes(#"Added 10 Year to Ship Date",{{"Ship.Date.1", type datetime}}),
+		    #"Reordered Columns1" = Table.ReorderColumns(#"Changed Type3",{"Category", "City", "Country", "Customer.ID", "Customer.Name", "Discount", "Market", "Order.Date", "Order.ID", "Order.Priority", "Product.ID", "Product.Name", "Profit", "Quantity", "Region", "Row.ID", "Sales", "Segment", "Ship.Date", "Ship.Date.1", "Ship.Mode", "Shipping.Cost", "State", "Sub.Category", "Year", "Market Fullname", "weeknum"}),
+		    #"Removed Columns1" = Table.RemoveColumns(#"Reordered Columns1",{"Ship.Date"}),
+		    #"Renamed Columns1" = Table.RenameColumns(#"Removed Columns1",{{"Ship.Date.1", "Ship.Date"}}),
+		    #"Added Custom" = Table.AddColumn(#"Renamed Columns1", "Discount Band", each if [Discount] = null then "None" else if [Discount] = 0 then "None" else if [Discount] > 0 and [Discount] < 0.33 then "Low" else if [Discount] > 0.33 and [Discount] < 0.66 then "Medium" else "High"),
+		    #"Changed Type4" = Table.TransformColumnTypes(#"Added Custom",{{"Discount Band", type text}})
+		in
+		    #"Changed Type4"
+	lineageTag: d514c9eb-3597-4d98-8552-41c49f17756d
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression Query1 =
+		let
+		  DateTable = () as table =>
+		    let
+		      StartDate = DateTime.Date(List.Min(superstore[Order.Date])),
+		      EndDate = DateTime.Date(List.Max(superstore[Order.Date])),
+		      FYStartMonth = 1,
+		      DayCount = Duration.Days(Duration.From(EndDate - StartDate)) + 1,
+		      Source = List.Dates(StartDate, DayCount, #duration(1, 0, 0, 0)),
+		      TableFromList = Table.FromList(Source, Splitter.SplitByNothing()),
+		      ChangedType = Table.TransformColumnTypes(TableFromList, {{"Column1", type date}}),
+		      RenamedColumns = Table.RenameColumns(ChangedType, {{"Column1", "Date"}}),
+		      InsertYear = Table.AddColumn(RenamedColumns, "Year", each Date.Year([Date]), type text),
+		      InsertYearNumber = Table.AddColumn(RenamedColumns, "YearNumber", each Date.Year([Date])),
+		      InsertQuarter = Table.AddColumn(InsertYear, "QuarterOfYear", each Date.QuarterOfYear([Date])),
+		      InsertMonthStart = Table.AddColumn(
+		        InsertQuarter,
+		        "Reporting Period",
+		        each Date.StartOfMonth([Date]),
+		        type date
+		      ),
+		      InsertMonthEnd = Table.AddColumn(
+		        InsertMonthStart,
+		        "MonthEndOfYear",
+		        each Date.EndOfMonth([Date]),
+		        type date
+		      ),
+		      InsertMonth = Table.AddColumn(
+		        InsertMonthEnd,
+		        "MonthOfYear",
+		        each Date.Month([Date]),
+		        type text
+		      ),
+		      InsertDay = Table.AddColumn(InsertMonth, "DayOfMonth", each Date.Day([Date])),
+		      InsertDayInt = Table.AddColumn(
+		        InsertDay,
+		        "DateInt",
+		        each [Year] * 10000 + [MonthOfYear] * 100 + [DayOfMonth]
+		      ),
+		      InsertMonthName = Table.AddColumn(
+		        InsertDayInt,
+		        "MonthName",
+		        each Date.ToText([Date], "MMMM"),
+		        type text
+		      ),
+		      InsertShortMonthName = Table.AddColumn(
+		        InsertMonthName,
+		        "ShortMonth",
+		        each Date.ToText([Date], "MMM"),
+		        type text
+		      ),
+		      InsertCalendarMonth = Table.AddColumn(
+		        InsertShortMonthName,
+		        "MonthInCalendar",
+		        each (try (Text.Range([MonthName], 0, 3)) otherwise [MonthName])
+		          & " "
+		          & Number.ToText([Year])
+		      ),
+		      InsertCalendarQtr = Table.AddColumn(
+		        InsertCalendarMonth,
+		        "QuarterInCalendar",
+		        each "Q" & Number.ToText([QuarterOfYear]) & " " & Number.ToText([Year])
+		      ),
+		      InsertDayWeek = Table.AddColumn(
+		        InsertCalendarQtr,
+		        "DayInWeek",
+		        each Date.DayOfWeek([Date], Day.Monday)
+		      ),
+		      InsertDayName = Table.AddColumn(
+		        InsertDayWeek,
+		        "DayOfWeekName",
+		        each Date.ToText([Date], "dddd"),
+		        type text
+		      ),
+		      InsertWeekEnding = Table.AddColumn(
+		        InsertDayName,
+		        "WeekEnding",
+		        each Date.EndOfWeek([Date]),
+		        type date
+		      ),
+		      InsertWeekNumber = Table.AddColumn(
+		        InsertWeekEnding,
+		        "Week Number",
+		        each Date.WeekOfYear([Date])
+		      ),
+		      InsertMonthnYear = Table.AddColumn(
+		        InsertWeekNumber,
+		        "MonthnYear",
+		        each [Year] * 10000 + [MonthOfYear] * 100
+		      ),
+		      InsertQuarternYear = Table.AddColumn(
+		        InsertMonthnYear,
+		        "QuarternYear",
+		        each [Year] * 10000 + [QuarterOfYear] * 100
+		      ),
+		      ChangedType1 = Table.TransformColumnTypes(
+		        InsertQuarternYear,
+		        {
+		          {"QuarternYear", Int64.Type},
+		          {"Week Number", Int64.Type},
+		          {"Year", type text},
+		          {"MonthnYear", Int64.Type},
+		          {"DateInt", Int64.Type},
+		          {"DayOfMonth", Int64.Type},
+		          {"MonthOfYear", Int64.Type},
+		          {"QuarterOfYear", Int64.Type},
+		          {"MonthInCalendar", type text},
+		          {"QuarterInCalendar", type text},
+		          {"DayInWeek", Int64.Type}
+		        }
+		      ),
+		      InsertShortYear = Table.AddColumn(
+		        ChangedType1,
+		        "ShortYear",
+		        each Text.End(Text.From([Year]), 2),
+		        type text
+		      ),
+		      InsertYearMonth = Table.AddColumn(
+		        InsertShortYear,
+		        "YearMonth",
+		         each [Year] & Number.ToText([MonthOfYear],"00"), type text
+		      ),
+		      AddFY = Table.AddColumn(
+		        InsertYearMonth,
+		        "FY",
+		        each "FY"
+		          & (
+		            if [MonthOfYear] >= FYStartMonth and FYStartMonth > 1 then
+		              Text.From(Number.From([ShortYear]) + 1)
+		            else
+		              [ShortYear]
+		          ),
+		          type text
+		      )
+		    in
+		      AddFY
+		in
+		  DateTable
+	lineageTag: f763a214-6b89-4933-bde4-92ba740991c1
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Function
+

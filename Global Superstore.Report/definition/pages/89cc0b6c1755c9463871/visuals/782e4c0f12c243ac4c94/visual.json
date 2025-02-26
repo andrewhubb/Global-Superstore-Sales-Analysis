@@ -1,0 +1,16 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.5.0/schema.json",
+  "name": "782e4c0f12c243ac4c94",
+  "position": {
+    "x": 35.247363644897831,
+    "y": 300,
+    "z": 23000,
+    "height": 49.666739681446948,
+    "width": 213.08633476233689,
+    "tabOrder": 23000
+  },
+  "visualGroup": {
+    "displayName": "Period Button Active",
+    "groupMode": "ScaleMode"
+  }
+}

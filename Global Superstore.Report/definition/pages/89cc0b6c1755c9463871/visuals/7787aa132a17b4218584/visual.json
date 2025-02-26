@@ -1,0 +1,17 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.5.0/schema.json",
+  "name": "7787aa132a17b4218584",
+  "position": {
+    "x": 35,
+    "y": 500,
+    "z": 24000,
+    "height": 50,
+    "width": 212,
+    "tabOrder": 24000
+  },
+  "visualGroup": {
+    "displayName": "Furniture Button Active",
+    "groupMode": "ScaleMode"
+  },
+  "isHidden": true
+}

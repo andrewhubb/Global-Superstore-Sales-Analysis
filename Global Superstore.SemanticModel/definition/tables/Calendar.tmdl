@@ -1,0 +1,207 @@
+table Calendar
+	lineageTag: 2db99c3b-7d10-43e6-8d7a-a44fda42e9f3
+	dataCategory: Time
+
+	column Date
+		dataType: dateTime
+		isKey
+		formatString: Short Date
+		lineageTag: b01f7101-f7e0-435f-ac66-6fac27df3537
+		summarizeBy: none
+		sourceColumn: Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Year
+		dataType: string
+		lineageTag: cddc62e4-3474-4685-ab45-63c404a8aaec
+		summarizeBy: none
+		sourceColumn: Year
+
+		annotation SummarizationSetBy = Automatic
+
+	column QuarterOfYear
+		dataType: int64
+		formatString: 0
+		lineageTag: cafcc512-5638-435f-a51d-9b6e02a1e8c5
+		summarizeBy: none
+		sourceColumn: QuarterOfYear
+
+		annotation SummarizationSetBy = Automatic
+
+	column MonthEndOfYear
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 21586b83-54d6-4fe0-9f01-c183c5bf8051
+		summarizeBy: none
+		sourceColumn: MonthEndOfYear
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column MonthOfYear
+		dataType: int64
+		formatString: 0
+		lineageTag: 3c52ee86-1108-4892-9de8-092556e2ce40
+		summarizeBy: none
+		sourceColumn: MonthOfYear
+
+		annotation SummarizationSetBy = Automatic
+
+	column DayOfMonth
+		dataType: int64
+		formatString: 0
+		lineageTag: 859bebed-6577-4c1a-a94b-08a855d2bf29
+		summarizeBy: none
+		sourceColumn: DayOfMonth
+
+		annotation SummarizationSetBy = Automatic
+
+	column DateInt
+		dataType: int64
+		formatString: 0
+		lineageTag: c6d26a90-e5e0-4fb9-aa98-69e8e3f00a96
+		summarizeBy: none
+		sourceColumn: DateInt
+
+		annotation SummarizationSetBy = Automatic
+
+	column MonthName
+		dataType: string
+		lineageTag: 945fdb9d-5b8c-46da-8a55-943cbba42d28
+		summarizeBy: none
+		sourceColumn: MonthName
+
+		annotation SummarizationSetBy = Automatic
+
+	column ShortMonth
+		dataType: string
+		lineageTag: 5ce153b3-75da-4890-b60a-1e0d7da606a1
+		summarizeBy: none
+		sourceColumn: ShortMonth
+
+		annotation SummarizationSetBy = Automatic
+
+	column MonthInCalendar
+		dataType: string
+		lineageTag: 05d468fa-787d-4cd2-a019-51013af92572
+		summarizeBy: none
+		sourceColumn: MonthInCalendar
+
+		annotation SummarizationSetBy = Automatic
+
+	column QuarterInCalendar
+		dataType: string
+		lineageTag: e8d60892-dd71-4f39-b2f0-c6b901afbced
+		summarizeBy: none
+		sourceColumn: QuarterInCalendar
+
+		annotation SummarizationSetBy = Automatic
+
+	column DayInWeek
+		dataType: int64
+		formatString: 0
+		lineageTag: 2261a06e-867e-4d62-b60f-ce293544da42
+		summarizeBy: none
+		sourceColumn: DayInWeek
+
+		annotation SummarizationSetBy = Automatic
+
+	column DayOfWeekName
+		dataType: string
+		lineageTag: 442e3cbb-7bfa-48ec-b303-b1176bd1d8c6
+		summarizeBy: none
+		sourceColumn: DayOfWeekName
+
+		annotation SummarizationSetBy = Automatic
+
+	column WeekEnding
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: ac2dbdb3-0b0d-4080-8f71-8da1fb0b1883
+		summarizeBy: none
+		sourceColumn: WeekEnding
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Week Number'
+		dataType: int64
+		formatString: 0
+		lineageTag: e2d1c048-d6c7-4618-814a-a2e5abff5a48
+		summarizeBy: none
+		sourceColumn: Week Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column MonthnYear
+		dataType: int64
+		formatString: 0
+		lineageTag: 9f697eac-2d16-4252-8841-5bdc521fec89
+		summarizeBy: none
+		sourceColumn: MonthnYear
+
+		annotation SummarizationSetBy = Automatic
+
+	column QuarternYear
+		dataType: int64
+		formatString: 0
+		lineageTag: e404bb00-21f9-4904-8b92-a4f23d85377d
+		summarizeBy: none
+		sourceColumn: QuarternYear
+
+		annotation SummarizationSetBy = Automatic
+
+	column ShortYear
+		dataType: string
+		lineageTag: 1bc8ed64-fcde-4f58-8af4-83223ad5e1b2
+		summarizeBy: none
+		sourceColumn: ShortYear
+
+		annotation SummarizationSetBy = Automatic
+
+	column FY
+		dataType: string
+		lineageTag: f2a2cbea-0937-41f0-aee4-ef48ff7cd5f1
+		summarizeBy: none
+		sourceColumn: FY
+
+		annotation SummarizationSetBy = Automatic
+
+	column YearMonth
+		dataType: string
+		lineageTag: c8ae851a-b594-4787-8537-3cb7d983656f
+		summarizeBy: none
+		sourceColumn: YearMonth
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Reporting Period'
+		dataType: dateTime
+		formatString: mmmm yyyy
+		lineageTag: 2e7bc3de-f6ab-43c3-a516-17c83a9ad795
+		summarizeBy: none
+		sourceColumn: Reporting Period
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	partition Calendar = m
+		mode: import
+		source =
+				let
+				    Source = Query1()
+				in
+				    Source
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

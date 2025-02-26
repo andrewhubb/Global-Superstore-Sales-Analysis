@@ -1,0 +1,36 @@
+table ShipMode
+	lineageTag: 94295198-6668-40ba-a0d8-69865b135d45
+
+	column 'Ship.Mode'
+		dataType: string
+		lineageTag: 720c2281-fe93-4f4d-ac5b-043e9064ff4b
+		summarizeBy: none
+		sourceColumn: Ship.Mode
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Ship.Mode_key'
+		dataType: int64
+		formatString: 0
+		lineageTag: c011f98d-e293-4e25-b16d-1fdec5480fbd
+		summarizeBy: none
+		sourceColumn: Ship.Mode_key
+
+		annotation SummarizationSetBy = Automatic
+
+	partition ShipMode = m
+		mode: import
+		source =
+				let
+				    Source = superstore_source,
+				    #"Removed Other Columns" = Table.SelectColumns(Source,{"Ship.Mode"}),
+				    #"Removed Duplicates" = Table.Distinct(#"Removed Other Columns"),
+				    #"Added Index" = Table.AddIndexColumn(#"Removed Duplicates", "Index", 1, 1, Int64.Type),
+				    #"Renamed Columns" = Table.RenameColumns(#"Added Index",{{"Index", "Ship.Mode_key"}})
+				in
+				    #"Renamed Columns"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

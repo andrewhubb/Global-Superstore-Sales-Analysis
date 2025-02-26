@@ -1,0 +1,238 @@
+table superstore
+	lineageTag: ea3545c0-8e2a-4799-87c0-0fe6a4654f90
+
+	column 'Customer.ID'
+		dataType: string
+		isHidden
+		lineageTag: 451224ca-fda5-4fca-9f5e-34a495899d47
+		summarizeBy: none
+		sourceColumn: Customer.ID
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Discount
+		dataType: double
+		formatString: 0
+		lineageTag: 4e1fe509-4030-4d37-8963-220cd41b4767
+		summarizeBy: sum
+		sourceColumn: Discount
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Order.ID'
+		dataType: string
+		lineageTag: 9605c5ae-0dca-40ec-b93d-69c0e620635a
+		summarizeBy: none
+		sourceColumn: Order.ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Product.ID'
+		dataType: string
+		isHidden
+		lineageTag: 7e82962c-537d-4f50-b112-e55a691d0a96
+		summarizeBy: none
+		sourceColumn: Product.ID
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Profit
+		dataType: double
+		lineageTag: d15bdcb5-27f7-4ee2-92de-878a130793b1
+		summarizeBy: sum
+		sourceColumn: Profit
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Quantity
+		dataType: int64
+		formatString: 0
+		lineageTag: d3afdf67-5034-4c22-b6fe-d6678af10b45
+		summarizeBy: sum
+		sourceColumn: Quantity
+
+		annotation SummarizationSetBy = Automatic
+
+	column Sales
+		dataType: int64
+		formatString: 0
+		lineageTag: 85995c3c-8c38-4fb6-97fd-56a313f2107d
+		summarizeBy: sum
+		sourceColumn: Sales
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Shipping.Cost'
+		dataType: double
+		lineageTag: 7cf7c7ce-46cd-4270-bc94-85bc772c2220
+		summarizeBy: sum
+		sourceColumn: Shipping.Cost
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Year
+		dataType: int64
+		formatString: 0
+		lineageTag: 4e6cc284-4062-4119-91a0-626b126242f8
+		summarizeBy: sum
+		sourceColumn: Year
+
+		annotation SummarizationSetBy = Automatic
+
+	column weeknum
+		dataType: int64
+		formatString: 0
+		lineageTag: c24d93c0-5422-4b14-8582-f4c512a88258
+		summarizeBy: sum
+		sourceColumn: weeknum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Order.Priority_key'
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 9daddc2f-7917-4d8b-b223-e8c9b54faad0
+		summarizeBy: none
+		sourceColumn: Order.Priority_key
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Ship.Mode_key'
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: d459666f-5f2f-4494-925f-dbabe615b5ba
+		summarizeBy: none
+		sourceColumn: Ship.Mode_key
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Location_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 8b4890c0-ab76-437e-870b-e84c74c77232
+		summarizeBy: none
+		sourceColumn: Location_key
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Shipping Duration'
+		dataType: int64
+		formatString: 0
+		lineageTag: 68cde293-04b4-4bf8-a858-a5ad7df1d6c1
+		summarizeBy: sum
+		sourceColumn: Shipping Duration
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'shipping_cost.pct'
+		dataType: double
+		lineageTag: 6bab63c5-828a-47b6-93e4-ec71edbf941a
+		summarizeBy: sum
+		sourceColumn: shipping_cost.pct
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Net Sales'
+		dataType: double
+		lineageTag: 57694142-e14f-4702-8c5b-79a779c77f0e
+		summarizeBy: sum
+		sourceColumn: Net Sales
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Discount Value'
+		dataType: double
+		lineageTag: 0a3e40d9-ad62-4326-b658-29ce9092dc8c
+		summarizeBy: sum
+		sourceColumn: Discount Value
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column COGS
+		dataType: double
+		lineageTag: a8f4ed76-54b0-405c-9c59-5c155f46d9d9
+		summarizeBy: sum
+		sourceColumn: COGS
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Order.Date'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 48ea78b3-e56b-42c8-b34d-cae64eef21bc
+		summarizeBy: none
+		sourceColumn: Order.Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Discount Band'
+		dataType: string
+		lineageTag: 8ca7d860-141f-4219-9c5c-04bd13067f8f
+		summarizeBy: none
+		sourceColumn: Discount Band
+
+		annotation SummarizationSetBy = Automatic
+
+	partition superstore = m
+		mode: import
+		source =
+				let
+				    Source = superstore_source,
+				    #"Merged OrderPriority" = Table.NestedJoin(Source, {"Order.Priority"}, OrderPriority, {"Order.Priority"}, "OrderPriority", JoinKind.LeftOuter),
+				    #"Expanded OrderPriority" = Table.ExpandTableColumn(#"Merged OrderPriority", "OrderPriority", {"Order.Priority_key"}, {"Order.Priority_key"}),
+				    #"Removed OrderPriority" = Table.RemoveColumns(#"Expanded OrderPriority",{"Order.Priority"}),
+				    #"Removed Product Name" = Table.RemoveColumns(#"Removed OrderPriority",{"Product.Name", "Category", "Segment", "Sub.Category"}),
+				    #"Removed RowID" = Table.RemoveColumns(#"Removed Product Name",{"Row.ID"}),
+				    #"Merged ShipMode" = Table.NestedJoin(#"Removed RowID", {"Ship.Mode"}, ShipMode, {"Ship.Mode"}, "ShipMode", JoinKind.LeftOuter),
+				    #"Expanded ShipMode" = Table.ExpandTableColumn(#"Merged ShipMode", "ShipMode", {"Ship.Mode_key"}, {"Ship.Mode_key"}),
+				    #"Removed ShipMode" = Table.RemoveColumns(#"Expanded ShipMode",{"Ship.Mode"}),
+				    #"Merged Location" = Table.NestedJoin(#"Removed ShipMode", {"City", "Country", "Region", "State"}, Location, {"City", "Country", "Region", "State"}, "Location", JoinKind.LeftOuter),
+				    #"Expanded Location" = Table.ExpandTableColumn(#"Merged Location", "Location", {"Location_key"}, {"Location_key"}),
+				    #"Removed Columns" = Table.RemoveColumns(#"Expanded Location",{"City", "Country", "Region", "State", "Market"}),
+				    #"Filtered Out 2025" = Table.SelectRows(#"Removed Columns", each [Order.Date] < #datetime(2025, 1, 1, 0, 0, 0)),
+				    #"Added Shipping Duration" = Table.AddColumn(#"Filtered Out 2025", "Shipping Duration", each Duration.Days([Ship.Date] - [Order.Date]), Int64.Type),
+				    #"Removed Ship.Date Column" = Table.RemoveColumns(#"Added Shipping Duration",{"Ship.Date"}),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Removed Ship.Date Column",{{"Order.Date", type date}}),
+				    #"Removed Customer Name" = Table.RemoveColumns(#"Changed Type",{"Customer.Name"}),
+				    #"Added  Shipping Cost Pct" = Table.AddColumn(#"Removed Customer Name", "shipping_cost.pct", each if [Sales] = 0 then 0 else [Shipping.Cost] / [Sales]),
+				    #"Changed Type1" = Table.TransformColumnTypes(#"Added  Shipping Cost Pct",{{"shipping_cost.pct", Percentage.Type}}),
+				    #"Added Discount Value" = Table.AddColumn(#"Changed Type1", "Discount Value", each [Sales] * [Discount]),
+				    #"Changed Type3" = Table.TransformColumnTypes(#"Added Discount Value",{{"Discount Value", type number}}),
+				    #"Added Net Sales" = Table.AddColumn(#"Changed Type3", "Net Sales", each [Sales] * (1 - [Discount])),
+				    #"Changed Type2" = Table.TransformColumnTypes(#"Added Net Sales",{{"Net Sales", type number}}),
+				    #"Added Custom" = Table.AddColumn(#"Changed Type2", "COGS", each [Sales] - [Profit]),
+				    #"Changed Type4" = Table.TransformColumnTypes(#"Added Custom",{{"COGS", type number}}),
+				    #"Removed Columns1" = Table.RemoveColumns(#"Changed Type4",{"Market Fullname"})
+				in
+				    #"Removed Columns1"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

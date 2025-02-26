@@ -1,0 +1,83 @@
+table Location
+	lineageTag: b0b89773-9022-410a-b9d8-1a8616f0be4c
+
+	column City
+		dataType: string
+		lineageTag: 484a30ee-99c2-492f-806b-c727a5960fe1
+		summarizeBy: none
+		sourceColumn: City
+
+		annotation SummarizationSetBy = Automatic
+
+	column Country
+		dataType: string
+		lineageTag: 51668733-2b8a-4e8a-a3a9-840402e1e7be
+		summarizeBy: none
+		sourceColumn: Country
+
+		annotation SummarizationSetBy = Automatic
+
+	column Region
+		dataType: string
+		lineageTag: bf164b49-9184-4b19-87c2-b5a4ae16ad1f
+		summarizeBy: none
+		sourceColumn: Region
+
+		annotation SummarizationSetBy = Automatic
+
+	column State
+		dataType: string
+		lineageTag: 337dc452-312c-4672-9ae7-bf971fea5b55
+		summarizeBy: none
+		sourceColumn: State
+
+		annotation SummarizationSetBy = Automatic
+
+	column Location_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 020830b8-3fbd-4c13-b856-a04bfaf15a77
+		summarizeBy: none
+		sourceColumn: Location_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column Market
+		dataType: string
+		lineageTag: af26af75-799c-4f38-8dd1-d79895ff38b9
+		summarizeBy: none
+		sourceColumn: Market
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Market Fullname'
+		dataType: string
+		lineageTag: 0b10104c-a877-4099-8ce2-994b6ba41d2e
+		summarizeBy: none
+		sourceColumn: Market Fullname
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Location = m
+		mode: import
+		source =
+				let
+				    Source = superstore_source,
+				    #"Removed Other Columns" = Table.SelectColumns(Source,{"City", "Country", "Region", "State","Market","Market Fullname"}),
+				    #"Removed Duplicates" = Table.Distinct(#"Removed Other Columns"),
+				    #"Added Index" = Table.AddIndexColumn(#"Removed Duplicates", "Index", 1, 1, Int64.Type),
+				    #"Renamed Columns" = Table.RenameColumns(#"Added Index",{{"Index", "Location_key"}}),
+				    #"Replaced Value" = Table.ReplaceValue(#"Renamed Columns","EU","European Union",Replacer.ReplaceValue,{"Market Fullname"}),
+				    #"Replaced Value1" = Table.ReplaceValue(#"Replaced Value","LATAM","Latin America",Replacer.ReplaceValue,{"Market Fullname"}),
+				    #"Replaced Value2" = Table.ReplaceValue(#"Replaced Value1","APAC","Asia Pacific",Replacer.ReplaceValue,{"Market Fullname"}),
+				    #"Replaced Value3" = Table.ReplaceValue(#"Replaced Value2","EMEA","Europe, Middle East, and Africa",Replacer.ReplaceValue,{"Market Fullname"}),
+				    #"Filtered Rows" = Table.SelectRows(#"Replaced Value3", each true),
+				    #"Replaced Value4" = Table.ReplaceValue(#"Filtered Rows","Africa","EMEA",Replacer.ReplaceText,{"Market"}),
+				    #"Filtered Rows1" = Table.SelectRows(#"Replaced Value4", each true)
+				in
+				    #"Filtered Rows1"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

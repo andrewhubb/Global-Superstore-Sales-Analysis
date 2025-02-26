@@ -1,0 +1,24 @@
+relationship AutoDetected_3caec04d-85ca-46f1-b0c0-350b99337a1c
+	fromColumn: superstore.'Product.ID'
+	toColumn: Product.'Product.ID'
+
+relationship 5bcfad8b-4363-fad1-f2c3-f98154cb085c
+	fromColumn: superstore.'Order.Priority_key'
+	toColumn: OrderPriority.'Order.Priority_key'
+
+relationship 88f6c7a0-2dae-c938-17c4-6907598417dc
+	fromColumn: superstore.'Ship.Mode_key'
+	toColumn: ShipMode.'Ship.Mode_key'
+
+relationship AutoDetected_e9aa89e8-1388-42bc-9152-50433415247e
+	fromColumn: superstore.Location_key
+	toColumn: Location.Location_key
+
+relationship AutoDetected_ec2d6d37-9b4c-4e93-bc1e-f123d7ec6007
+	fromColumn: superstore.'Customer.ID'
+	toColumn: Customer.'Customer.ID'
+
+relationship ee35dfa4-697a-ad2a-aee9-4a7093f8c57a
+	fromColumn: superstore.'Order.Date'
+	toColumn: Calendar.Date
+

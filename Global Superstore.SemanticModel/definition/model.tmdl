@@ -1,0 +1,27 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-GB
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation PBI_QueryOrder = ["Folder Path","superstore_source","superstore","Product","OrderPriority","ShipMode","Location","Customer","_All Measures","Query1","Calendar"]
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBIDesktopVersion = 2.140.1078.0 (25.02)+2cce24fb16e8b71ba835921d23e7ffc1fab909df
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table superstore
+ref table Product
+ref table OrderPriority
+ref table ShipMode
+ref table Location
+ref table Customer
+ref table '_All Measures'
+ref table Calendar
+
+ref cultureInfo en-US
+

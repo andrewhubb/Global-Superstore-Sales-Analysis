@@ -1,0 +1,33 @@
+table Customer
+	lineageTag: bdcb2ae2-3805-46e5-a147-8b6d76e8e0aa
+
+	column 'Customer.ID'
+		dataType: string
+		lineageTag: a720a22a-591a-47e1-86ae-1a5ad05f0580
+		summarizeBy: none
+		sourceColumn: Customer.ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer.Name'
+		dataType: string
+		lineageTag: d9f031a4-3347-48f8-a9ec-ff7835aa01f6
+		summarizeBy: none
+		sourceColumn: Customer.Name
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Customer = m
+		mode: import
+		source =
+				let
+				    Source = superstore_source,
+				    #"Removed Other Columns" = Table.SelectColumns(Source,{"Customer.ID", "Customer.Name"}),
+				    #"Removed Duplicates" = Table.Distinct(#"Removed Other Columns")
+				in
+				    #"Removed Duplicates"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

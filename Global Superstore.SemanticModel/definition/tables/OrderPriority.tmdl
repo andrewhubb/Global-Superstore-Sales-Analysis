@@ -1,0 +1,36 @@
+table OrderPriority
+	lineageTag: 74947835-e76d-4838-8679-a979e2e7463b
+
+	column 'Order.Priority'
+		dataType: string
+		lineageTag: 922477e9-86e7-470d-b33c-bef681b5984e
+		summarizeBy: none
+		sourceColumn: Order.Priority
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Order.Priority_key'
+		dataType: int64
+		formatString: 0
+		lineageTag: d3a2add2-d11b-4030-82c5-97d331a26ac9
+		summarizeBy: none
+		sourceColumn: Order.Priority_key
+
+		annotation SummarizationSetBy = Automatic
+
+	partition OrderPriority = m
+		mode: import
+		source =
+				let
+				    Source = superstore_source,
+				    #"Removed Other Columns" = Table.SelectColumns(Source,{"Order.Priority"}),
+				    #"Removed Duplicates" = Table.Distinct(#"Removed Other Columns"),
+				    #"Added Index" = Table.AddIndexColumn(#"Removed Duplicates", "Index", 1, 1, Int64.Type),
+				    #"Renamed Columns" = Table.RenameColumns(#"Added Index",{{"Index", "Order.Priority_key"}})
+				in
+				    #"Renamed Columns"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
