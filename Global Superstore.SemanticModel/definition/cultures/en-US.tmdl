@@ -3127,7 +3127,9 @@ cultureInfo en-US
 			      },
 			      "State": "Generated",
 			      "Terms": [
-			        {},
+			        {
+			          "": {}
+			        },
 			        {
 			          "province": {
 			            "Type": "Noun",

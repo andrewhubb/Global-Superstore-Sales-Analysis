@@ -2,8 +2,8 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.5.0/schema.json",
   "name": "c32aad2cc49057d80dc4",
   "position": {
-    "x": 35,
-    "y": 550,
+    "x": 0,
+    "y": 250,
     "z": 25000,
     "height": 50,
     "width": 212,
@@ -13,5 +13,6 @@
     "displayName": "Office Supplies Button Active",
     "groupMode": "ScaleMode"
   },
+  "parentGroupName": "7652b2b98787a982de7d",
   "isHidden": true
 }
