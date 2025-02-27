@@ -72,10 +72,9 @@ table Location
 				    #"Replaced Value2" = Table.ReplaceValue(#"Replaced Value1","APAC","Asia Pacific",Replacer.ReplaceValue,{"Market Fullname"}),
 				    #"Replaced Value3" = Table.ReplaceValue(#"Replaced Value2","EMEA","Europe, Middle East, and Africa",Replacer.ReplaceValue,{"Market Fullname"}),
 				    #"Filtered Rows" = Table.SelectRows(#"Replaced Value3", each true),
-				    #"Replaced Value4" = Table.ReplaceValue(#"Filtered Rows","Africa","EMEA",Replacer.ReplaceText,{"Market"}),
-				    #"Filtered Rows1" = Table.SelectRows(#"Replaced Value4", each true)
+				    #"Replaced Value4" = Table.ReplaceValue(#"Filtered Rows","Africa","EMEA",Replacer.ReplaceText,{"Market"})
 				in
-				    #"Filtered Rows1"
+				    #"Replaced Value4"
 
 	annotation PBI_NavigationStepName = Navigation
 

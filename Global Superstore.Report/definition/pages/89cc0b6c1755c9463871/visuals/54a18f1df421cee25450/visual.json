@@ -4,10 +4,9 @@
   "position": {
     "x": 0,
     "y": 200,
-    "z": 15000,
+    "z": 2000,
     "height": 50.149721545909948,
-    "width": 212,
-    "tabOrder": 17000
+    "width": 212
   },
   "visual": {
     "visualType": "actionButton",
@@ -269,7 +268,7 @@
             "bookmark": {
               "expr": {
                 "Literal": {
-                  "Value": "'0a10ae61333b0008dd22'"
+                  "Value": "'6b493b88321f00a67baa'"
                 }
               }
             }

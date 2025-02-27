@@ -4,10 +4,9 @@
   "position": {
     "x": 0,
     "y": 300,
-    "z": 26000,
+    "z": 13000,
     "height": 50,
-    "width": 212,
-    "tabOrder": 15000
+    "width": 212
   },
   "visualGroup": {
     "displayName": "Technology Button Active",

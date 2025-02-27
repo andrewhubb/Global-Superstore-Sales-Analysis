@@ -4,10 +4,9 @@
   "position": {
     "x": 0,
     "y": 200,
-    "z": 24000,
+    "z": 11000,
     "height": 50,
-    "width": 212,
-    "tabOrder": 12000
+    "width": 212
   },
   "visualGroup": {
     "displayName": "Furniture Button Active",

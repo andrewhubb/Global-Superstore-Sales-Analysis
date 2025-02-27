@@ -1,0 +1,55 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.5.0/schema.json",
+  "name": "40ede1ed6d9739008cd1",
+  "position": {
+    "x": 36.953081561952011,
+    "y": 347.35896668234892,
+    "z": 18000,
+    "height": 76.369701894700825,
+    "width": 211.86433428852487,
+    "tabOrder": 21008
+  },
+  "visual": {
+    "visualType": "slicer",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ShipMode"
+                    }
+                  },
+                  "Property": "Ship.Mode"
+                }
+              },
+              "queryRef": "ShipMode.Ship.Mode",
+              "nativeQueryRef": "Shipping Mode",
+              "active": true,
+              "displayName": "Shipping Mode"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "data": [
+        {
+          "properties": {
+            "mode": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Dropdown'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

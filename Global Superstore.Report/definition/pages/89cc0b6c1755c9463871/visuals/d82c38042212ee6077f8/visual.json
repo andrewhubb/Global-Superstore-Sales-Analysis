@@ -4,10 +4,9 @@
   "position": {
     "x": 0.24736364489783114,
     "y": 150,
-    "z": 21000,
+    "z": 8000,
     "height": 50,
-    "width": 212,
-    "tabOrder": 21000
+    "width": 212
   },
   "visualGroup": {
     "displayName": "Category Button Active",

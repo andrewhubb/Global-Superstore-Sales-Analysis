@@ -1,0 +1,240 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.5.0/schema.json",
+  "name": "79fcb0f6783eda5047c5",
+  "position": {
+    "x": 265.07709959980969,
+    "y": 151.88201382475583,
+    "z": 0,
+    "height": 704.96180001679124,
+    "width": 1283.8328715752946,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Kaggle is the source for the dataset for this report, the URL for the dataset is: ",
+                    "textStyle": {
+                      "fontSize": "18pt"
+                    }
+                  },
+                  {
+                    "value": "https://www.kaggle.com/datasets/ronysoliman/global-superstore-dataset/",
+                    "textStyle": {
+                      "fontSize": "18pt"
+                    },
+                    "url": "https://www.kaggle.com/datasets/ronysoliman/global-superstore-dataset/"
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": ""
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "This dataset contains information for a fictional global superstore that sells furniture, technology and office supplies. A",
+                    "textStyle": {
+                      "fontSize": "18pt"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": ""
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "The dataset is a CSV file with 27 rows and 51290 rows of transactional data. The data is in a single table and contains dimensions and transactions. It",
+                    "textStyle": {
+                      "fontSize": "18pt"
+                    }
+                  },
+                  {
+                    "value": " contains transaction information from January 1st 2011 until December 31 2014. ",
+                    "textStyle": {
+                      "fontSize": "24px"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": ""
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "I have made some changes to the data. I have altered the dates by adding the number of years since the last date in the dataset to the Order.Date and Ship.Date columns. This creates a dynamic dataset that shows 4 years of transactions from the end of the previous year. ",
+                    "textStyle": {
+                      "fontSize": "18pt"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": ""
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "As the discount column was just a percentage, I have added a column that calculates the discount value. To make analysis discounts easier, I added a discount band group column that contains",
+                    "textStyle": {
+                      "fontSize": "18pt"
+                    }
+                  },
+                  {
+                    "value": " Low",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "18pt"
+                    }
+                  },
+                  {
+                    "value": ", ",
+                    "textStyle": {
+                      "fontSize": "18pt"
+                    }
+                  },
+                  {
+                    "value": "Medium",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "18pt"
+                    }
+                  },
+                  {
+                    "value": " and ",
+                    "textStyle": {
+                      "fontSize": "18pt"
+                    }
+                  },
+                  {
+                    "value": "High",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "18pt"
+                    }
+                  },
+                  {
+                    "value": ". I also added a column that calculates the Cost of Goods Sold. ",
+                    "textStyle": {
+                      "fontSize": "18pt"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": ""
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "To make Time Intelligence functions work better and to reduce the size of the model. I created a calendar table.",
+                    "textStyle": {
+                      "fontSize": "18pt"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": ""
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Because the table contained dimensions in with the transaction data. I created dimension tables and moved the dimension information into dimension tables and linked them to the transaction data.",
+                    "textStyle": {
+                      "fontSize": "18pt"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": ""
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": ""
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": ""
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": ""
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": ""
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

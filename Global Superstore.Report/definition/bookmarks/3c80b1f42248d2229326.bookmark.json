@@ -1907,42 +1907,6 @@
               "objects": {}
             }
           },
-          "c359e4bb2427163515a6": {
-            "singleVisual": {
-              "visualType": "slicer",
-              "objects": {
-                "merge": {
-                  "data": [
-                    {
-                      "properties": {
-                        "mode": {
-                          "expr": {
-                            "Literal": {
-                              "Value": "'Dropdown'"
-                            }
-                          }
-                        }
-                      }
-                    }
-                  ]
-                }
-              },
-              "activeProjections": {
-                "Values": [
-                  {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "Calendar"
-                        }
-                      },
-                      "Property": "Year"
-                    }
-                  }
-                ]
-              }
-            }
-          },
           "cb2a97c2956de5508a33": {
             "singleVisual": {
               "visualType": "pivotTable",

@@ -4,10 +4,9 @@
   "position": {
     "x": 0,
     "y": 350,
-    "z": 28000,
+    "z": 15000,
     "height": 50,
-    "width": 212,
-    "tabOrder": 26000
+    "width": 212
   },
   "visualGroup": {
     "displayName": "Help Button Active",

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.5.0/schema.json",
+  "name": "c4348fe8c51a7335e2ef",
+  "position": {
+    "x": 0,
+    "y": 300,
+    "z": 13000,
+    "height": 50,
+    "width": 212
+  },
+  "visualGroup": {
+    "displayName": "Technology Button Active",
+    "groupMode": "ScaleMode"
+  },
+  "parentGroupName": "2a47886f9ffdb2a1c700",
+  "isHidden": true
+}

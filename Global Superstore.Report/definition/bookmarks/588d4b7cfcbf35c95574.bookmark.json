@@ -1,0 +1,215 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/bookmark/1.2.0/schema.json",
+  "displayName": "Help Overview Page",
+  "name": "588d4b7cfcbf35c95574",
+  "options": {
+    "targetVisualNames": []
+  },
+  "explorationState": {
+    "version": "1.3",
+    "activeSection": "bad43b116b23400ee525",
+    "sections": {
+      "bad43b116b23400ee525": {
+        "visualContainers": {
+          "79fcb0f6783eda5047c5": {
+            "singleVisual": {
+              "visualType": "textbox",
+              "objects": {}
+            }
+          },
+          "1a26eed9f3c613ef9d74": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "642f70f18d6c2f009c35": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "809cd30788d3ac7944b5": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "0ae4a4dc6e1fd80c7200": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "0d934eafa19a01c104e9": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "5d3c503af8c326f18b3d": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "73908af825441ed0c361": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {},
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "f1b635ca4e3a0f2958cd": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "54a329e59bcc6ef0b850": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "95269d170d4b394d716f": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "4e3c77a25e1cff6a3591": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "2b60fd10b93190a00cb5": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "4f5392f4c998e8dce2a0": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "2542801ae5d11e1b005f": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "8e0c35b3395e5f1ceb87": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "9eaab4761cfb40aa8bde": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "2663fb68d8ed67b346de": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "e7d414ccdda0d4bcfb13": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "f5bba9b9472a4fa00c31": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "1cb5737e3f42f6d945e9": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "f1a5beada7391cce4efc": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "a0b952da5378b3697fbb": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "0d9a5baac5b35e6eae2b": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "72cb74654c91e7ecdd5f": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          }
+        },
+        "visualContainerGroups": {
+          "2a47886f9ffdb2a1c700": {
+            "children": {
+              "dbbf60a2bac9989e36e3": {
+                "isHidden": true
+              },
+              "4d293ce488dcbf3e4b1c": {
+                "isHidden": true
+              },
+              "a1910d12f835114e2ed2": {
+                "isHidden": true
+              },
+              "be17533d2b0a116ade45": {
+                "isHidden": true
+              },
+              "c4348fe8c51a7335e2ef": {
+                "isHidden": true
+              },
+              "1056df54ce3fa5ac5cf5": {
+                "isHidden": true
+              },
+              "90df59aa04a15fc1b728": {
+                "isHidden": true
+              }
+            }
+          }
+        }
+      }
+    },
+    "objects": {
+      "merge": {
+        "outspacePane": [
+          {
+            "properties": {
+              "expanded": {
+                "expr": {
+                  "Literal": {
+                    "Value": "true"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

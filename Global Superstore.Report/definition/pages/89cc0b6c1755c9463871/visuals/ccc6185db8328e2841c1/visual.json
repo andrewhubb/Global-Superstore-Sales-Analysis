@@ -4,10 +4,9 @@
   "position": {
     "x": 0,
     "y": 50,
-    "z": 22000,
+    "z": 9000,
     "height": 50,
-    "width": 212,
-    "tabOrder": 20000
+    "width": 212
   },
   "visualGroup": {
     "displayName": "Market Button Active",

@@ -30,7 +30,7 @@ table '_All Measures'
 
 	measure 'Gross Sales' =
 			
-			SUM(superstore[Sales])
+			SUM(superstore[Gross Sales])
 		formatString: \$#,0;(\$#,0);\$#,0
 		displayFolder: Total
 		lineageTag: c8554720-2630-4c9f-89bf-cd18253b78a2
@@ -931,6 +931,11 @@ table '_All Measures'
 			    )
 			```
 		lineageTag: 9aa8efe0-9ea6-416a-a4ad-7cd815977c86
+
+	measure Transparent =
+			
+			"RGBA(255,255,255,0)"
+		lineageTag: 4c085b5a-baed-490c-b1d9-17a0e487d618
 
 	partition '_All Measures' = m
 		mode: import

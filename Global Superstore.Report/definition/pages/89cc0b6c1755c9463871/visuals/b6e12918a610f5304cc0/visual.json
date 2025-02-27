@@ -4,10 +4,9 @@
   "position": {
     "x": 0.27432197888098386,
     "y": 100,
-    "z": 20000,
+    "z": 7000,
     "height": 50,
-    "width": 212,
-    "tabOrder": 22000
+    "width": 212
   },
   "visualGroup": {
     "displayName": "Segment Button Active",
