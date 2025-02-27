@@ -125,15 +125,10 @@ table superstore
 
 	column 'Ship.Date'
 		dataType: dateTime
-		formatString: Long Date
+		formatString: Short Date
 		lineageTag: 207146f8-fb0f-4520-87a6-ad041068a0bd
 		summarizeBy: none
 		sourceColumn: Ship.Date
-
-		variation Variation
-			isDefault
-			relationship: b5adac99-87c0-43c3-97fb-cea191d9ce5b
-			defaultHierarchy: LocalDateTable_29b0f1bc-4b96-4b7e-b30d-c92504bea751.'Date Hierarchy'
 
 		annotation SummarizationSetBy = Automatic
 

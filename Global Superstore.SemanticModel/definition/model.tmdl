@@ -22,8 +22,6 @@ ref table Location
 ref table Customer
 ref table '_All Measures'
 ref table Calendar
-ref table DateTableTemplate_b3a2f419-2a8e-47f7-acfb-131922a435e6
-ref table LocalDateTable_29b0f1bc-4b96-4b7e-b30d-c92504bea751
 
 ref cultureInfo en-US
 

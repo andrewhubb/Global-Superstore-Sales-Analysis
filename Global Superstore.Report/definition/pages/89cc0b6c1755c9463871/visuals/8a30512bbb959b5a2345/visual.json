@@ -12,5 +12,6 @@
   "visualGroup": {
     "displayName": "Market",
     "groupMode": "ScaleMode"
-  }
+  },
+  "isHidden": true
 }
