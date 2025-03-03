@@ -6,7 +6,8 @@
     "y": 100,
     "z": 7000,
     "height": 50,
-    "width": 212
+    "width": 212,
+    "tabOrder": 13000
   },
   "visualGroup": {
     "displayName": "Segment Button Active",

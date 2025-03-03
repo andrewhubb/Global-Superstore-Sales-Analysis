@@ -58,11 +58,6 @@
       "type": "RegisteredResources",
       "items": [
         {
-          "name": "Workspace_X_Logo_-_Transparent17468032800104694.png",
-          "path": "Workspace_X_Logo_-_Transparent17468032800104694.png",
-          "type": "Image"
-        },
-        {
           "name": "ICO_Units_Sold_Gray5030293484733734.svg",
           "path": "ICO_Units_Sold_Gray5030293484733734.svg",
           "type": "Image"
@@ -328,8 +323,23 @@
           "type": "Image"
         },
         {
-          "name": "ICO_Clear_Filters_Gold9726665038343352.svg",
-          "path": "ICO_Clear_Filters_Gold9726665038343352.svg",
+          "name": "ICO_Clear_Filters_Gold5452931405679644.svg",
+          "path": "ICO_Clear_Filters_Gold5452931405679644.svg",
+          "type": "Image"
+        },
+        {
+          "name": "ICO_Discounts_White385356536964534.svg",
+          "path": "ICO_Discounts_White385356536964534.svg",
+          "type": "Image"
+        },
+        {
+          "name": "ICO_Star_Gold08634525826400719.svg",
+          "path": "ICO_Star_Gold08634525826400719.svg",
+          "type": "Image"
+        },
+        {
+          "name": "Drillthrough_Page_Background5877082022120654.jpg",
+          "path": "Drillthrough_Page_Background5877082022120654.jpg",
           "type": "Image"
         }
       ]

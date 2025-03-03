@@ -6,7 +6,8 @@
     "y": 0,
     "z": 1000,
     "height": 258.43701789936279,
-    "width": 348.98153946510126
+    "width": 348.98153946510126,
+    "tabOrder": 0
   },
   "visualGroup": {
     "displayName": "Navigation",

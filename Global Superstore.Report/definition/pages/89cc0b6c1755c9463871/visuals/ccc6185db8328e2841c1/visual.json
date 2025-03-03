@@ -6,12 +6,12 @@
     "y": 50,
     "z": 9000,
     "height": 50,
-    "width": 212
+    "width": 212,
+    "tabOrder": 12000
   },
   "visualGroup": {
     "displayName": "Market Button Active",
     "groupMode": "ScaleMode"
   },
-  "parentGroupName": "7652b2b98787a982de7d",
-  "isHidden": true
+  "parentGroupName": "7652b2b98787a982de7d"
 }

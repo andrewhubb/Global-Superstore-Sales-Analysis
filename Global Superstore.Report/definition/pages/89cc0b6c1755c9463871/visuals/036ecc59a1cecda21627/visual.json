@@ -6,7 +6,8 @@
     "y": 0,
     "z": 6000,
     "height": 49.666739681446948,
-    "width": 211.484181869387
+    "width": 211.484181869387,
+    "tabOrder": 0
   },
   "visual": {
     "visualType": "actionButton",
@@ -279,6 +280,5 @@
     "drillFilterOtherVisuals": true
   },
   "parentGroupName": "7652b2b98787a982de7d",
-  "isHidden": true,
   "howCreated": "InsertVisualButton"
 }

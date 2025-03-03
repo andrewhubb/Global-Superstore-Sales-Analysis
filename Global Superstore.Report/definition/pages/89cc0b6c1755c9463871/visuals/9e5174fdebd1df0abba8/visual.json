@@ -4,10 +4,10 @@
   "position": {
     "x": 33.257773405756808,
     "y": 229.10910568410247,
-    "z": 16000,
+    "z": 15000,
     "height": 76.369701894700825,
     "width": 211.86433428852487,
-    "tabOrder": 21006
+    "tabOrder": 15000
   },
   "visual": {
     "visualType": "slicer",
@@ -42,6 +42,21 @@
               "expr": {
                 "Literal": {
                   "Value": "'Dropdown'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Country Slicer'"
                 }
               }
             }

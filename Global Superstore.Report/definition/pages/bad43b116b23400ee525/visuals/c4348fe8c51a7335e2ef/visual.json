@@ -6,7 +6,8 @@
     "y": 300,
     "z": 13000,
     "height": 50,
-    "width": 212
+    "width": 212,
+    "tabOrder": 12000
   },
   "visualGroup": {
     "displayName": "Technology Button Active",

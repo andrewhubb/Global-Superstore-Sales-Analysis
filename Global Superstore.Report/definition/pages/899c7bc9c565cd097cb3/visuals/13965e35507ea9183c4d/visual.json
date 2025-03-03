@@ -1,0 +1,18 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.5.0/schema.json",
+  "name": "13965e35507ea9183c4d",
+  "position": {
+    "x": 0.24736364489783114,
+    "y": 150,
+    "z": 8000,
+    "height": 50,
+    "width": 212,
+    "tabOrder": 15000
+  },
+  "visualGroup": {
+    "displayName": "Category Button Active",
+    "groupMode": "ScaleMode"
+  },
+  "parentGroupName": "6f9a58d39fae833a5813",
+  "isHidden": true
+}

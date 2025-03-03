@@ -6,7 +6,8 @@
     "y": 0,
     "z": 10000,
     "height": 49.666739681446948,
-    "width": 213.08633476233689
+    "width": 213.08633476233689,
+    "tabOrder": 3000
   },
   "visualGroup": {
     "displayName": "Period Button Active",

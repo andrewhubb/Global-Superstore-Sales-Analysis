@@ -4,14 +4,13 @@
   "position": {
     "x": 266.37762844136137,
     "y": 300.32771834075055,
-    "z": 5000,
+    "z": 4000,
     "height": 553.64761989773137,
     "width": 1283.5745527345991,
-    "tabOrder": 5000
+    "tabOrder": 4000
   },
   "visualGroup": {
     "displayName": "Market",
     "groupMode": "ScaleMode"
-  },
-  "isHidden": true
+  }
 }

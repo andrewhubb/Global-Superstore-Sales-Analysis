@@ -6,7 +6,8 @@
     "y": 350,
     "z": 15000,
     "height": 50,
-    "width": 212
+    "width": 212,
+    "tabOrder": 1000
   },
   "visualGroup": {
     "displayName": "Help Button Active",

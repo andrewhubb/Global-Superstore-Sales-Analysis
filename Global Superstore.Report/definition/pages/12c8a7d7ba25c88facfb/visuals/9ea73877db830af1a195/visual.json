@@ -6,7 +6,8 @@
     "y": 0,
     "z": 2000,
     "height": 259.05135237035245,
-    "width": 348.86627527723437
+    "width": 348.86627527723437,
+    "tabOrder": 1000
   },
   "visualGroup": {
     "displayName": "How to Use",

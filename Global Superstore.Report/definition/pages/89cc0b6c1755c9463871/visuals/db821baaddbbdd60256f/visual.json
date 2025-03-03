@@ -4,10 +4,10 @@
   "position": {
     "x": 33.257773405756808,
     "y": 169.98417518497925,
-    "z": 14000,
+    "z": 13000,
     "height": 76.369701894700825,
     "width": 211.86433428852487,
-    "tabOrder": 21004
+    "tabOrder": 12000
   },
   "visual": {
     "visualType": "slicer",
@@ -51,6 +51,21 @@
       "general": [
         {
           "properties": {}
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Year Slicer'"
+                }
+              }
+            }
+          }
         }
       ]
     },

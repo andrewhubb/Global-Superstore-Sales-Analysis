@@ -107,22 +107,6 @@ table superstore
 
 		annotation UnderlyingDateTimeDataType = Date
 
-	column Category
-		dataType: string
-		lineageTag: 57c75ae5-7d65-4153-b99c-7db7832c9bb3
-		summarizeBy: none
-		sourceColumn: Category
-
-		annotation SummarizationSetBy = Automatic
-
-	column Segment
-		dataType: string
-		lineageTag: d8d2ba78-80ed-48d2-b56b-ce473d925a2d
-		summarizeBy: none
-		sourceColumn: Segment
-
-		annotation SummarizationSetBy = Automatic
-
 	column 'Ship.Date'
 		dataType: dateTime
 		formatString: Short Date
@@ -133,14 +117,6 @@ table superstore
 		annotation SummarizationSetBy = Automatic
 
 		annotation UnderlyingDateTimeDataType = Date
-
-	column 'Sub.Category'
-		dataType: string
-		lineageTag: 46311e14-c20f-4bee-93d4-33934bdb084a
-		summarizeBy: none
-		sourceColumn: Sub.Category
-
-		annotation SummarizationSetBy = Automatic
 
 	column 'Discount Value'
 		dataType: double
@@ -182,28 +158,37 @@ table superstore
 
 	column 'Order.Priority_key'
 		dataType: int64
+		isHidden
 		formatString: 0
 		lineageTag: d0d95e28-3a97-4bd3-9d98-efe21d2cf00c
 		summarizeBy: none
 		sourceColumn: Order.Priority_key
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Ship.Mode_key'
 		dataType: int64
+		isHidden
 		formatString: 0
 		lineageTag: f1a5d023-9d7d-4ce3-adea-5d952ac35193
 		summarizeBy: none
 		sourceColumn: Ship.Mode_key
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column Location_key
 		dataType: int64
+		isHidden
 		formatString: 0
 		lineageTag: a1aaeb14-b96f-4a9a-ba5f-ffc5fd634636
 		summarizeBy: none
 		sourceColumn: Location_key
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -276,7 +261,7 @@ table superstore
 				    #"Removed Ship Mode" = Table.RemoveColumns(#"Expanded ShipMode",{"Ship.Mode"}),
 				    #"Merged Location" = Table.NestedJoin(#"Removed Ship Mode", {"City", "Country", "Region", "State"}, Location, {"City", "Country", "Region", "State"}, "Location", JoinKind.LeftOuter),
 				    #"Expanded Location" = Table.ExpandTableColumn(#"Merged Location", "Location", {"Location_key"}, {"Location_key"}),
-				    #"Removed Location Columns & Customer Name" = Table.RemoveColumns(#"Expanded Location",{"City", "Country", "Market", "Region", "State", "Market Fullname", "Customer.Name"})
+				    #"Removed Location Columns & Customer Name" = Table.RemoveColumns(#"Expanded Location",{"City", "Country", "Market", "Region", "State", "Market Fullname", "Customer.Name", "Category", "Segment", "Sub.Category"})
 				in
 				    #"Removed Location Columns & Customer Name"
 				```

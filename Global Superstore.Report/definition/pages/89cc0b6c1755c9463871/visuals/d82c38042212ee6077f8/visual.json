@@ -6,7 +6,8 @@
     "y": 150,
     "z": 8000,
     "height": 50,
-    "width": 212
+    "width": 212,
+    "tabOrder": 14000
   },
   "visualGroup": {
     "displayName": "Category Button Active",

@@ -1,0 +1,18 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.5.0/schema.json",
+  "name": "515f3d259dc1cf7e7ad4",
+  "position": {
+    "x": 0,
+    "y": 50,
+    "z": 9000,
+    "height": 50,
+    "width": 212,
+    "tabOrder": 12000
+  },
+  "visualGroup": {
+    "displayName": "Market Button Active",
+    "groupMode": "ScaleMode"
+  },
+  "parentGroupName": "4b3671a0b6dc07cb30d7",
+  "isHidden": true
+}

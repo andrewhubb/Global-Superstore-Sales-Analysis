@@ -1,0 +1,18 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.5.0/schema.json",
+  "name": "5c0d3c48e889cd7d5b41",
+  "position": {
+    "x": 0,
+    "y": 350,
+    "z": 15000,
+    "height": 50,
+    "width": 212,
+    "tabOrder": 1000
+  },
+  "visualGroup": {
+    "displayName": "Help Button Active",
+    "groupMode": "ScaleMode"
+  },
+  "parentGroupName": "4b3671a0b6dc07cb30d7",
+  "isHidden": true
+}

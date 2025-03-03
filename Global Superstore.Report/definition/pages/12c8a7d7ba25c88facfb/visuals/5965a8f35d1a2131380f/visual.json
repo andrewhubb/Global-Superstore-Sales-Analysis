@@ -6,7 +6,8 @@
     "y": 200,
     "z": 11000,
     "height": 50,
-    "width": 212
+    "width": 212,
+    "tabOrder": 7000
   },
   "visualGroup": {
     "displayName": "Furniture Button Active",

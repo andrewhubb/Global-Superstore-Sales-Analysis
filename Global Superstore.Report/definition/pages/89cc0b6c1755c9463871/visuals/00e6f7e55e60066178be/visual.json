@@ -280,7 +280,7 @@
             "markerSize": {
               "expr": {
                 "Literal": {
-                  "Value": "4D"
+                  "Value": "5D"
                 }
               }
             },
@@ -288,8 +288,9 @@
               "solid": {
                 "color": {
                   "expr": {
-                    "Literal": {
-                      "Value": "'#F18971'"
+                    "ThemeDataColor": {
+                      "ColorId": 5,
+                      "Percent": -0.25
                     }
                   }
                 }
