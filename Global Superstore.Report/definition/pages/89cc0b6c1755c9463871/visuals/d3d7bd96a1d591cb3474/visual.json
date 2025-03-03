@@ -306,7 +306,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'COGS by Market'"
+                  "Value": "'COGS by Period'"
                 }
               }
             },

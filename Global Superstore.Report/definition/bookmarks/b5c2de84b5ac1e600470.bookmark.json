@@ -1,0 +1,146 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/bookmark/1.2.0/schema.json",
+  "displayName": "Sales_Analysis_Default",
+  "name": "Bookmarkb5c2de84b5ac1e600470",
+  "options": {
+    "targetVisualNames": []
+  },
+  "explorationState": {
+    "version": "1.3",
+    "activeSection": "ReportSection7ff52e0e155175ca2b07",
+    "sections": {
+      "ReportSection7ff52e0e155175ca2b07": {
+        "filters": {
+          "byExpr": [
+            {
+              "name": "Filterb7fabf35179e400bad29",
+              "type": "Categorical",
+              "expression": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dim_Date"
+                    }
+                  },
+                  "Property": "Year"
+                }
+              },
+              "howCreated": 1
+            },
+            {
+              "name": "Filter3012e8f9d85ca1bc1686",
+              "type": "Categorical",
+              "expression": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dim_Date"
+                    }
+                  },
+                  "Property": "Quarter"
+                }
+              },
+              "howCreated": 1
+            },
+            {
+              "name": "Filter82c3dc16bb0594ec89b5",
+              "type": "Categorical",
+              "expression": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dim_Date"
+                    }
+                  },
+                  "Property": "Reporting Period"
+                }
+              },
+              "howCreated": 1
+            },
+            {
+              "name": "Filtercc508c9273c45d270554",
+              "type": "Categorical",
+              "expression": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Fact_Sales"
+                    }
+                  },
+                  "Property": "Country"
+                }
+              },
+              "howCreated": 1
+            },
+            {
+              "name": "Filterb0163b63ec64d9135289",
+              "type": "Categorical",
+              "expression": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Fact_Sales"
+                    }
+                  },
+                  "Property": "Segment"
+                }
+              },
+              "howCreated": 1
+            },
+            {
+              "name": "Filterd4b382673c7d457e3dc4",
+              "type": "Categorical",
+              "expression": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Fact_Sales"
+                    }
+                  },
+                  "Property": "Product"
+                }
+              },
+              "howCreated": 1
+            }
+          ]
+        },
+        "visualContainers": {},
+        "visualContainerGroups": {
+          "ff84e730d00aba42d438": {
+            "isHidden": true
+          },
+          "fe508a6004147ab6c66b": {
+            "isHidden": true
+          },
+          "58a762c1d6b537d631c2": {
+            "isHidden": false,
+            "children": {
+              "eca863e3ead615c4625c": {
+                "isHidden": false
+              },
+              "d10572d1306a7fbe7f8b": {
+                "isHidden": true
+              },
+              "ce91ebe318df04e6e6cf": {
+                "isHidden": true
+              },
+              "4800e949495e6c2f6b8e": {
+                "isHidden": true
+              }
+            }
+          },
+          "2604af0d69b209b45b7e": {
+            "isHidden": false
+          },
+          "6f07076436d1495ac202": {
+            "isHidden": true
+          },
+          "c7cb5fbc8e8cc2addc39": {
+            "isHidden": false
+          }
+        }
+      }
+    },
+    "objects": {}
+  }
+}

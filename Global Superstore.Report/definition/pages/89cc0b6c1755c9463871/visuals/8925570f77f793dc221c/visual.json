@@ -218,6 +218,13 @@
                   }
                 }
               }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "11D"
+                }
+              }
             }
           }
         },
@@ -640,7 +647,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "14D"
+                  "Value": "12D"
                 }
               }
             },
