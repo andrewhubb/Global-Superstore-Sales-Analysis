@@ -27,3 +27,7 @@ relationship 8a02ffaf-4725-068d-f30b-f53fe7aa33a9
 	fromColumn: superstore.'Ship.Date'
 	toColumn: Calendar.Date
 
+relationship AutoDetected_df0886c8-2576-4f5e-acae-c1e7f7a9370e
+	fromColumn: superstore.'Discount Band'
+	toColumn: 'Discount Bands'.'Discount Band'
+

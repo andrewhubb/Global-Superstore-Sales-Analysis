@@ -20,18 +20,35 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "superstore"
+                      "Entity": "Discount Bands"
                     }
                   },
                   "Property": "Discount Band"
                 }
               },
-              "queryRef": "superstore.Discount Band",
+              "queryRef": "Discount Bands.Discount Band",
               "nativeQueryRef": "Discount Band",
               "active": true
             }
           ]
         }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Discount Bands"
+                  }
+                },
+                "Property": "Discount Band"
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
       }
     },
     "objects": {
@@ -193,25 +210,5 @@
     },
     "drillFilterOtherVisuals": true
   },
-  "parentGroupName": "1bf3d1166f050ba1d1c0",
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "Filter6ead277e0a70b3979ee6",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Fact_Sales"
-              }
-            },
-            "Property": "Discount Band"
-          }
-        },
-        "type": "Categorical",
-        "howCreated": "User",
-        "isHiddenInViewMode": true
-      }
-    ]
-  }
+  "parentGroupName": "1bf3d1166f050ba1d1c0"
 }

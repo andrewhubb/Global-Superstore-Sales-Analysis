@@ -5,13 +5,13 @@
       "ordinal": 0,
       "scrollPosition": {
         "x": 0,
-        "y": 419.10685446225983
+        "y": 515.33331298828125
       },
       "nodes": [
         {
           "location": {
             "x": 788.4525705946096,
-            "y": 723.94970020647725
+            "y": 933.50312743760719
           },
           "nodeIndex": "OrderPriority",
           "nodeLineageTag": "74947835-e76d-4838-8679-a979e2e7463b",
@@ -24,7 +24,7 @@
         {
           "location": {
             "x": 6.048681673201969,
-            "y": 716.67576501803933
+            "y": 926.22919224916927
           },
           "nodeIndex": "Product",
           "nodeLineageTag": "8b8fad1a-6f13-4a37-984a-cb10c1e57229",
@@ -37,7 +37,7 @@
         {
           "location": {
             "x": 583.06897435221367,
-            "y": 721.50295900785454
+            "y": 931.05638623898449
           },
           "nodeIndex": "ShipMode",
           "nodeLineageTag": "94295198-6668-40ba-a0d8-69865b135d45",
@@ -50,7 +50,7 @@
         {
           "location": {
             "x": 470.22343916719808,
-            "y": 1046.6561087733032
+            "y": 1256.2095360044332
           },
           "nodeIndex": "superstore",
           "nodeLineageTag": "ea3545c0-8e2a-4799-87c0-0fe6a4654f90",
@@ -63,7 +63,7 @@
         {
           "location": {
             "x": 180.53720496144661,
-            "y": 720.72976982031969
+            "y": 930.28319705144963
           },
           "nodeIndex": "Location",
           "nodeLineageTag": "b0b89773-9022-410a-b9d8-1a8616f0be4c",
@@ -76,7 +76,7 @@
         {
           "location": {
             "x": 376.47053931203254,
-            "y": 721.12654860673024
+            "y": 930.67997583786018
           },
           "nodeIndex": "Customer",
           "nodeLineageTag": "bdcb2ae2-3805-46e5-a147-8b6d76e8e0aa",
@@ -89,7 +89,7 @@
         {
           "location": {
             "x": 491.40388892140766,
-            "y": 419.10685446225983
+            "y": 628.66028169338983
           },
           "nodeIndex": "_All Measures",
           "nodeLineageTag": "565862b8-1ae4-46ad-a3bb-97b36bc275eb",
@@ -102,7 +102,7 @@
         {
           "location": {
             "x": 1020.4038889214077,
-            "y": 722.61176852344374
+            "y": 932.16519575457369
           },
           "nodeIndex": "Calendar",
           "nodeLineageTag": "2db99c3b-7d10-43e6-8d7a-a44fda42e9f3",
@@ -111,6 +111,19 @@
             "width": 180
           },
           "zIndex": 2
+        },
+        {
+          "location": {
+            "x": 1224.3552072482055,
+            "y": 935.32805438665162
+          },
+          "nodeIndex": "Discount Bands",
+          "nodeLineageTag": "7ef0812d-8a3c-497e-a780-74e99905ea04",
+          "size": {
+            "height": 145,
+            "width": 201
+          },
+          "zIndex": 0
         }
       ],
       "name": "All tables",
