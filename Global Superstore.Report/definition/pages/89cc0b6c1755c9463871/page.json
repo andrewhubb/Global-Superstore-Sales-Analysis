@@ -14,7 +14,7 @@
               "name": {
                 "expr": {
                   "Literal": {
-                    "Value": "'Sales Analysis Page Background  1.jpg'"
+                    "Value": "'Sales Analysis Page Background  .jpg'"
                   }
                 }
               },
@@ -23,7 +23,7 @@
                   "ResourcePackageItem": {
                     "PackageName": "RegisteredResources",
                     "PackageType": 1,
-                    "ItemName": "Sales_Analysis_Page_Background39724168940719484.jpg"
+                    "ItemName": "Sales_Analysis_Page_Background3417974038153191.jpg"
                   }
                 }
               },
