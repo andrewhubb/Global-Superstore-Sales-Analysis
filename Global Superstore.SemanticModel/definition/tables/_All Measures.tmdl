@@ -937,6 +937,22 @@ table '_All Measures'
 			"RGBA(255,255,255,0)"
 		lineageTag: 4c085b5a-baed-490c-b1d9-17a0e487d618
 
+	measure 'Number of Markets' =
+			
+			DISTINCTCOUNT(
+			    Location[Market]
+			)
+		formatString: 0
+		lineageTag: 5c92e28d-eb38-40d2-b2b3-39e9f8576f29
+
+	measure 'Number of Regions' =
+			
+			DISTINCTCOUNT(
+			    Location[Region]
+			)
+		formatString: 0
+		lineageTag: 85dd830e-bdaa-45a4-b61b-05d6de39e1a5
+
 	partition '_All Measures' = m
 		mode: import
 		source =

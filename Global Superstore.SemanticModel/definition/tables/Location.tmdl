@@ -25,14 +25,6 @@ table Location
 
 		annotation SummarizationSetBy = Automatic
 
-	column State
-		dataType: string
-		lineageTag: 337dc452-312c-4672-9ae7-bf971fea5b55
-		summarizeBy: none
-		sourceColumn: State
-
-		annotation SummarizationSetBy = Automatic
-
 	column Location_key
 		dataType: int64
 		formatString: 0
@@ -63,7 +55,7 @@ table Location
 		source =
 				let
 				    Source = superstore_source,
-				    #"Removed Other Columns" = Table.SelectColumns(Source,{"City", "Country", "Region", "State","Market","Market Fullname"}),
+				    #"Removed Other Columns" = Table.SelectColumns(Source,{"City", "Country", "Region", "Market","Market Fullname"}),
 				    #"Removed Duplicates" = Table.Distinct(#"Removed Other Columns"),
 				    #"Added Index" = Table.AddIndexColumn(#"Removed Duplicates", "Index", 1, 1, Int64.Type),
 				    #"Renamed Columns" = Table.RenameColumns(#"Added Index",{{"Index", "Location_key"}}),
@@ -72,9 +64,10 @@ table Location
 				    #"Replaced Value2" = Table.ReplaceValue(#"Replaced Value1","APAC","Asia Pacific",Replacer.ReplaceValue,{"Market Fullname"}),
 				    #"Replaced Value3" = Table.ReplaceValue(#"Replaced Value2","EMEA","Europe, Middle East, and Africa",Replacer.ReplaceValue,{"Market Fullname"}),
 				    #"Filtered Rows" = Table.SelectRows(#"Replaced Value3", each true),
-				    #"Replaced Value4" = Table.ReplaceValue(#"Filtered Rows","Africa","EMEA",Replacer.ReplaceText,{"Market"})
+				    #"Replaced Value4" = Table.ReplaceValue(#"Filtered Rows","Africa","EMEA",Replacer.ReplaceText,{"Market"}),
+				    #"Filtered Rows1" = Table.SelectRows(#"Replaced Value4", each true)
 				in
-				    #"Replaced Value4"
+				    #"Filtered Rows1"
 
 	annotation PBI_NavigationStepName = Navigation
 

@@ -245,8 +245,7 @@ table superstore
 				      "Segment",
 				      "Ship.Date",
 				      "Ship.Mode",
-				      "Shipping.Cost",
-				      "State",
+				      "Shipping.Cost",      
 				      "Sub.Category",
 				      "Year",
 				      "Market Fullname",
@@ -259,9 +258,9 @@ table superstore
 				    #"Merged Ship Mode" = Table.NestedJoin(#"Removed Order Priority", {"Ship.Mode"}, ShipMode, {"Ship.Mode"}, "ShipMode", JoinKind.LeftOuter),
 				    #"Expanded ShipMode" = Table.ExpandTableColumn(#"Merged Ship Mode", "ShipMode", {"Ship.Mode_key"}, {"Ship.Mode_key"}),
 				    #"Removed Ship Mode" = Table.RemoveColumns(#"Expanded ShipMode",{"Ship.Mode"}),
-				    #"Merged Location" = Table.NestedJoin(#"Removed Ship Mode", {"City", "Country", "Region", "State"}, Location, {"City", "Country", "Region", "State"}, "Location", JoinKind.LeftOuter),
+				    #"Merged Location" = Table.NestedJoin(#"Removed Ship Mode", {"City", "Country", "Region"}, Location, {"City", "Country", "Region"}, "Location", JoinKind.LeftOuter),
 				    #"Expanded Location" = Table.ExpandTableColumn(#"Merged Location", "Location", {"Location_key"}, {"Location_key"}),
-				    #"Removed Location Columns & Customer Name" = Table.RemoveColumns(#"Expanded Location",{"City", "Country", "Market", "Region", "State", "Market Fullname", "Customer.Name", "Category", "Segment", "Sub.Category"})
+				    #"Removed Location Columns & Customer Name" = Table.RemoveColumns(#"Expanded Location",{"City", "Country", "Market", "Region", "Market Fullname", "Customer.Name", "Category", "Segment", "Sub.Category"})
 				in
 				    #"Removed Location Columns & Customer Name"
 				```

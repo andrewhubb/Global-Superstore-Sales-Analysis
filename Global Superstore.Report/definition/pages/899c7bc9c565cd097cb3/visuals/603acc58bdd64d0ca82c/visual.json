@@ -6,7 +6,8 @@
     "y": 0,
     "z": 3000,
     "height": 324.07407407407408,
-    "width": 603.05498981670064
+    "width": 603.05498981670064,
+    "tabOrder": 1000
   },
   "visual": {
     "visualType": "areaChart",

@@ -7,10 +7,11 @@
     "z": 4000,
     "height": 553.64761989773137,
     "width": 1283.5745527345991,
-    "tabOrder": 4000
+    "tabOrder": 3000
   },
   "visualGroup": {
     "displayName": "Market",
     "groupMode": "ScaleMode"
-  }
+  },
+  "isHidden": true
 }

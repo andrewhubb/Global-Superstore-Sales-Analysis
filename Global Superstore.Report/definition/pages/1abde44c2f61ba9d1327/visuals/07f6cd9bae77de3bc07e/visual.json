@@ -1,0 +1,17 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.5.0/schema.json",
+  "name": "07f6cd9bae77de3bc07e",
+  "position": {
+    "x": 0,
+    "y": 625.302022386122,
+    "z": 7000,
+    "height": 162.5081444286437,
+    "width": 313.86245769550396,
+    "tabOrder": 17003
+  },
+  "visualGroup": {
+    "displayName": "Net Profit",
+    "groupMode": "ScaleMode"
+  },
+  "parentGroupName": "b301ec8c502cde2fa719"
+}

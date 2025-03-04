@@ -1,6 +1,7 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/pagesMetadata/1.0.0/schema.json",
   "pageOrder": [
+    "1abde44c2f61ba9d1327",
     "89cc0b6c1755c9463871",
     "8f09ef46017701695ecc",
     "36b0d1dcd7d758d50ab8",
@@ -11,7 +12,8 @@
     "af00361b89614775bb75",
     "c7854c69d5a450c5cc6d",
     "899c7bc9c565cd097cb3",
-    "c4f97e13ab2b1b1fbe79"
+    "c4f97e13ab2b1b1fbe79",
+    "277d587c24742e2b8e64"
   ],
-  "activePageName": "89cc0b6c1755c9463871"
+  "activePageName": "1abde44c2f61ba9d1327"
 }

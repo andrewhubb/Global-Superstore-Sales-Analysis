@@ -106,8 +106,6 @@
       {
         "name": "28de3d622bd7c9076277",
         "boundFilter": "46d7a2f8e545dbd468ec",
-        "asAggregation": false,
-        "qnaSingleSelectRequired": false,
         "fieldExpr": {
           "Column": {
             "Expression": {
@@ -122,8 +120,6 @@
       {
         "name": "380edbced9375d2e9e7a",
         "boundFilter": "558515ddea838ebd25a7",
-        "asAggregation": false,
-        "qnaSingleSelectRequired": false,
         "fieldExpr": {
           "Column": {
             "Expression": {
@@ -138,8 +134,6 @@
       {
         "name": "04dbea907d50bed31d81",
         "boundFilter": "88883ad0bdf5791583ae",
-        "asAggregation": false,
-        "qnaSingleSelectRequired": false,
         "fieldExpr": {
           "Column": {
             "Expression": {
@@ -154,8 +148,6 @@
       {
         "name": "25070613ff7a7bafdbc7",
         "boundFilter": "36ff0e01fb6cd0ac2527",
-        "asAggregation": false,
-        "qnaSingleSelectRequired": false,
         "fieldExpr": {
           "Column": {
             "Expression": {
@@ -170,8 +162,6 @@
       {
         "name": "bb759adcd6d9a6c5f652",
         "boundFilter": "60c668321c68488c8e31",
-        "asAggregation": false,
-        "qnaSingleSelectRequired": false,
         "fieldExpr": {
           "Column": {
             "Expression": {
@@ -186,8 +176,6 @@
       {
         "name": "a58e3c464ca6ec699121",
         "boundFilter": "58f8d33b48294e9b7afb",
-        "asAggregation": false,
-        "qnaSingleSelectRequired": false,
         "fieldExpr": {
           "Measure": {
             "Expression": {
@@ -243,5 +231,6 @@
       }
     ]
   },
+  "visibility": "HiddenInViewMode",
   "type": "Drillthrough"
 }

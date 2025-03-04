@@ -126,7 +126,7 @@ expression superstore_source = ```
 		      "weeknum"
 		    }
 		  ),
-		    #"Removed Columns" = Table.RemoveColumns(#"Reordered Table Columns",{"Row.ID"})
+		    #"Removed Columns" = Table.RemoveColumns(#"Reordered Table Columns",{"Row.ID", "State"})
 		in
 		    #"Removed Columns"
 		```

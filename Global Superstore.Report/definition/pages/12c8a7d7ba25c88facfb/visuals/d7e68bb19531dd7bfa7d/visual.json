@@ -69,7 +69,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Watch Here'"
+                  "Value": "'Read Here'"
                 }
               }
             },
@@ -164,6 +164,33 @@
               "expr": {
                 "Literal": {
                   "Value": "'Watch Here Button'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "visualLink": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "type": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Bookmark'"
+                }
+              }
+            },
+            "bookmark": {
+              "expr": {
+                "Literal": {
+                  "Value": "'06c22808d8b8048a287f'"
                 }
               }
             }

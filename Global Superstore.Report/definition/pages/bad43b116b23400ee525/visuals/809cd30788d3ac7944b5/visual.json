@@ -302,7 +302,7 @@
             "bookmark": {
               "expr": {
                 "Literal": {
-                  "Value": "''"
+                  "Value": "'c34ab6803bd499c37f1b'"
                 }
               }
             }

@@ -6,7 +6,8 @@
     "y": 7,
     "z": 1000,
     "height": 42.390298543807525,
-    "width": 89.767691033945354
+    "width": 89.767691033945354,
+    "tabOrder": 0
   },
   "visualGroup": {
     "displayName": "YoY",

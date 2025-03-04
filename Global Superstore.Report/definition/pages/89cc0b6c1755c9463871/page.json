@@ -14,7 +14,7 @@
               "name": {
                 "expr": {
                   "Literal": {
-                    "Value": "'test image.jpg'"
+                    "Value": "'Sales Analysis Page Background  1.jpg'"
                   }
                 }
               },
@@ -23,7 +23,7 @@
                   "ResourcePackageItem": {
                     "PackageName": "RegisteredResources",
                     "PackageType": 1,
-                    "ItemName": "test_image23184686999444026.jpg"
+                    "ItemName": "Sales_Analysis_Page_Background39724168940719484.jpg"
                   }
                 }
               },
@@ -47,6 +47,7 @@
       }
     ]
   },
+  "visibility": "HiddenInViewMode",
   "visualInteractions": [
     {
       "source": "3f06eb888562efceb253",

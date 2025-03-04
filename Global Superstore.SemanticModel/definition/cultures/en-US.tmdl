@@ -2856,60 +2856,6 @@ cultureInfo en-US
 			        }
 			      ]
 			    },
-			    "location.state": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "Location",
-			          "ConceptualProperty": "State"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "": {}
-			        },
-			        {
-			          "province": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.736
-			          }
-			        },
-			        {
-			          "territory": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.736
-			          }
-			        },
-			        {
-			          "nation": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.736
-			          }
-			        },
-			        {
-			          "condition": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.714
-			          }
-			        }
-			      ]
-			    },
 			    "location.location_key": {
 			      "Definition": {
 			        "Binding": {
@@ -5604,14 +5550,16 @@ cultureInfo en-US
 			      "State": "Generated",
 			      "Terms": [
 			        {
-			          "date selection": {
-			            "State": "Generated"
-			          }
+			          "date selection": {}
 			        },
 			        {
 			          "selection": {
-			            "State": "Generated",
 			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "date range": {
+			            "LastModified": "2025-03-04T05:39:25.26Z"
 			          }
 			        },
 			        {
