@@ -12,6 +12,5 @@
   "visualGroup": {
     "displayName": "Period",
     "groupMode": "ScaleMode"
-  },
-  "isHidden": true
+  }
 }

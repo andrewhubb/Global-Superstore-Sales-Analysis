@@ -40,11 +40,11 @@ table superstore
 
 		annotation SummarizationSetBy = Automatic
 
-	column Profit
+	column 'Original Profit'
 		dataType: double
 		lineageTag: d15bdcb5-27f7-4ee2-92de-878a130793b1
 		summarizeBy: sum
-		sourceColumn: Profit
+		sourceColumn: Original Profit
 
 		annotation SummarizationSetBy = Automatic
 
@@ -192,6 +192,16 @@ table superstore
 
 		annotation SummarizationSetBy = Automatic
 
+	column Profit
+		dataType: double
+		lineageTag: b48c67a3-cef8-466f-b048-4fb2e7e73e28
+		summarizeBy: sum
+		sourceColumn: Profit
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	partition superstore = m
 		mode: import
 		source = ```
@@ -210,16 +220,17 @@ table superstore
 				    each [Gross Sales] * [Discount],
 				    type number
 				  ),
+				    #"Filtered Rows" = Table.SelectRows(#"Added Discount Value", each true),
 				  #"Added Net Sales" = Table.AddColumn(
-				    #"Added Discount Value",
+				    #"Filtered Rows",
 				    "Net Sales",
-				    each [Gross Sales] * (1 - [Discount]),
+				    each [Gross Sales] - [Discount Value],
 				    type number
 				  ),
 				  #"Added COGS Column" = Table.AddColumn(
 				    #"Added Net Sales",
 				    "COGS",
-				    each [Gross Sales] - [Profit],
+				    each [Gross Sales] - [Profit] - [Shipping.Cost],
 				    type number
 				  ),
 				  #"Reordered Columns" = Table.ReorderColumns(
@@ -260,9 +271,12 @@ table superstore
 				    #"Removed Ship Mode" = Table.RemoveColumns(#"Expanded ShipMode",{"Ship.Mode"}),
 				    #"Merged Location" = Table.NestedJoin(#"Removed Ship Mode", {"City", "Country", "Region"}, Location, {"City", "Country", "Region"}, "Location", JoinKind.LeftOuter),
 				    #"Expanded Location" = Table.ExpandTableColumn(#"Merged Location", "Location", {"Location_key"}, {"Location_key"}),
-				    #"Removed Location Columns & Customer Name" = Table.RemoveColumns(#"Expanded Location",{"City", "Country", "Market", "Region", "Market Fullname", "Customer.Name", "Category", "Segment", "Sub.Category"})
+				    #"Removed Location Columns & Customer Name" = Table.RemoveColumns(#"Expanded Location",{"City", "Country", "Market", "Region", "Market Fullname", "Customer.Name", "Category", "Segment", "Sub.Category"}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Removed Location Columns & Customer Name",{{"Profit", "Original Profit"}}),
+				    #"Added New Profit Column" = Table.AddColumn(#"Renamed Columns", "Profit", each [Net Sales] - [COGS]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Added New Profit Column",{{"Profit", type number}})
 				in
-				    #"Removed Location Columns & Customer Name"
+				    #"Changed Type"
 				```
 
 	annotation PBI_NavigationStepName = Navigation

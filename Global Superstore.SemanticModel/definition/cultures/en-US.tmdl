@@ -957,7 +957,7 @@ cultureInfo en-US
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "superstore",
-			          "ConceptualProperty": "Profit"
+			          "ConceptualProperty": "Original Profit"
 			        }
 			      },
 			      "State": "Generated",

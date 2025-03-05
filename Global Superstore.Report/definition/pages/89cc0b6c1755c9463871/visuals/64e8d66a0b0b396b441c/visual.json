@@ -32,23 +32,6 @@
             }
           ]
         }
-      },
-      "sortDefinition": {
-        "sort": [
-          {
-            "field": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "Discount Bands"
-                  }
-                },
-                "Property": "Discount Band"
-              }
-            },
-            "direction": "Descending"
-          }
-        ]
       }
     },
     "objects": {

@@ -12,5 +12,6 @@
   "visualGroup": {
     "displayName": "Office Supplies",
     "groupMode": "ScaleMode"
-  }
+  },
+  "isHidden": true
 }
