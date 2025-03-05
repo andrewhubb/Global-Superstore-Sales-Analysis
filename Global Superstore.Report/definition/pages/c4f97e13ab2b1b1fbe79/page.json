@@ -9,6 +9,7 @@
     "filters": [
       {
         "name": "c0244e398796f654515c",
+        "ordinal": 0,
         "field": {
           "Column": {
             "Expression": {
@@ -24,6 +25,7 @@
       },
       {
         "name": "fa373e7e228e3e77a41d",
+        "ordinal": 1,
         "field": {
           "Column": {
             "Expression": {
@@ -39,6 +41,7 @@
       },
       {
         "name": "0d8b48bbc413e3f44c80",
+        "ordinal": 2,
         "field": {
           "Column": {
             "Expression": {
@@ -54,6 +57,7 @@
       },
       {
         "name": "6a647db49371bbfcff6c",
+        "ordinal": 3,
         "field": {
           "Column": {
             "Expression": {
@@ -69,6 +73,7 @@
       },
       {
         "name": "926f3472c92b1a64ac7b",
+        "ordinal": 4,
         "field": {
           "Column": {
             "Expression": {
@@ -84,6 +89,7 @@
       },
       {
         "name": "86e2610c89cc7870f738",
+        "ordinal": 5,
         "field": {
           "Measure": {
             "Expression": {
@@ -97,7 +103,8 @@
         "type": "Categorical",
         "howCreated": "Drillthrough"
       }
-    ]
+    ],
+    "filterSortOrder": "Custom"
   },
   "pageBinding": {
     "name": "def01a8519dcd3b6384f",

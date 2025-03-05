@@ -32,6 +32,13 @@
                   }
                 }
               }
+            },
+            "lineWeight": {
+              "expr": {
+                "Literal": {
+                  "Value": "2L"
+                }
+              }
             }
           },
           "selector": {
@@ -151,7 +158,7 @@
             "tooltip": {
               "expr": {
                 "Literal": {
-                  "Value": "'Clear all Filters and Show Default Report View'"
+                  "Value": "'Return to the Sales Analysis Page'"
                 }
               }
             }
