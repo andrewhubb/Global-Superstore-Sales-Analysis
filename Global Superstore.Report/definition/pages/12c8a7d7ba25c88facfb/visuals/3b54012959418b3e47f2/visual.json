@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.5.0/schema.json",
   "name": "3b54012959418b3e47f2",
   "position": {
-    "x": 33.852101379531518,
-    "y": 112.03412969283275,
+    "x": 35.409758159187639,
+    "y": 104.98908082575926,
     "z": 1000,
-    "height": 38,
-    "width": 188,
+    "height": 44.937176644493718,
+    "width": 242.42424242424244,
     "tabOrder": 3000
   },
   "visual": {
@@ -45,7 +45,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'andrewhubb@gmail.com'"
+                  "Value": "'andrew@insightfultechconsulting.com'"
                 }
               }
             },
@@ -137,7 +137,7 @@
             "webUrl": {
               "expr": {
                 "Literal": {
-                  "Value": "'mailto:andrewhubb@gmail.com'"
+                  "Value": "'mailto:andrew@insightfultechconsulting.com'"
                 }
               }
             }

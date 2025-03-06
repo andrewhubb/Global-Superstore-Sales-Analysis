@@ -1149,7 +1149,7 @@ cultureInfo en-US
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "superstore",
-			          "ConceptualProperty": "Gross Sales"
+			          "ConceptualProperty": "Net Sales"
 			        }
 			      },
 			      "State": "Generated",

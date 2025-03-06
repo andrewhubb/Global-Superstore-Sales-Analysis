@@ -78,7 +78,7 @@ expression superstore_source = ```
 		    type date
 		  ),
 		  #"Removed Old Ship Date Column" = Table.RemoveColumns(#"Added 10 Year to Ship Date", {"Ship.Date"}),
-		  #"Renamed Ship Date & Sales Columns" = Table.RenameColumns(#"Removed Old Ship Date Column", {{"Ship.Date.1", "Ship.Date"},{"Sales", "Gross Sales"}}),
+		  #"Renamed Ship Date & Sales Columns" = Table.RenameColumns(#"Removed Old Ship Date Column", {{"Ship.Date.1", "Ship.Date"},{"Sales", "Net Sales"}}),
 		  #"Added Discount Band" = Table.AddColumn(
 		    #"Renamed Ship Date & Sales Columns",
 		    "Discount Band",
@@ -95,40 +95,11 @@ expression superstore_source = ```
 		        "High",
 		      type text 
 		  ),
-		    #"Reordered Table Columns" = Table.ReorderColumns(
-		    #"Added Discount Band",
-		    {
-		      "Category",
-		      "City",
-		      "Country",
-		      "Customer.ID",
-		      "Customer.Name",
-		      "Discount",
-		      "Market",
-		      "Order.Date",
-		      "Order.ID",
-		      "Order.Priority",
-		      "Product.ID",
-		      "Product.Name",
-		      "Profit",
-		      "Quantity",
-		      "Region",
-		      "Row.ID",
-		      "Gross Sales",      
-		      "Segment",
-		      "Ship.Date",      
-		      "Ship.Mode",
-		      "Shipping.Cost",
-		      "State",
-		      "Sub.Category",
-		      "Year",
-		      "Market Fullname",
-		      "weeknum"
-		    }
-		  ),
-		    #"Removed Columns" = Table.RemoveColumns(#"Reordered Table Columns",{"Row.ID", "State"})
+		    #"Removed Columns" = Table.RemoveColumns(#"Added Discount Band",{"Row.ID", "State"}),
+		    #"Added Gross Sales" = Table.AddColumn(#"Removed Columns", "Gross Sales", each [Net Sales] / (1 - [Discount]), type number),
+		    #"Reordered Columns" = Table.ReorderColumns(#"Added Gross Sales",{"Category", "City", "Country", "Customer.ID", "Customer.Name", "Discount", "Market", "Order.ID", "Order.Priority", "Product.ID", "Product.Name", "Profit", "Quantity", "Region", "Net Sales", "Gross Sales", "Segment", "Ship.Mode", "Shipping.Cost", "Sub.Category", "Year", "Market Fullname", "weeknum", "Order.Date", "Ship.Date", "Discount Band"})
 		in
-		    #"Removed Columns"
+		    #"Reordered Columns"
 		```
 	lineageTag: d514c9eb-3597-4d98-8552-41c49f17756d
 

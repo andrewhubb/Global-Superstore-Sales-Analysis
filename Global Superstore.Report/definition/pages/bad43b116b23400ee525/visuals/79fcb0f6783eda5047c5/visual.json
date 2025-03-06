@@ -139,7 +139,7 @@
                     }
                   },
                   {
-                    "value": ". I also added a column that calculates the Cost of Goods Sold. ",
+                    "value": ". I also added  column that calculates the Cost of Goods Sold and a Gross Sales column.",
                     "textStyle": {
                       "fontSize": "18pt"
                     }

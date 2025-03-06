@@ -59,12 +59,12 @@ table superstore
 
 		annotation SummarizationSetBy = Automatic
 
-	column 'Gross Sales'
+	column 'Net Sales'
 		dataType: int64
 		formatString: 0
 		lineageTag: 85995c3c-8c38-4fb6-97fd-56a313f2107d
 		summarizeBy: sum
-		sourceColumn: Gross Sales
+		sourceColumn: Net Sales
 
 		annotation SummarizationSetBy = Automatic
 
@@ -146,16 +146,6 @@ table superstore
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	column 'Net Sales'
-		dataType: double
-		lineageTag: ed7c07ad-8466-4722-bd5a-291bffc51529
-		summarizeBy: sum
-		sourceColumn: Net Sales
-
-		annotation SummarizationSetBy = Automatic
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	column 'Order.Priority_key'
 		dataType: int64
 		isHidden
@@ -202,6 +192,15 @@ table superstore
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
+	column 'Gross Sales'
+		dataType: double
+		formatString: 0
+		lineageTag: 8980ca43-6c83-4630-821f-b82bc93bf703
+		summarizeBy: sum
+		sourceColumn: Gross Sales
+
+		annotation SummarizationSetBy = Automatic
+
 	partition superstore = m
 		mode: import
 		source = ```
@@ -214,26 +213,19 @@ table superstore
 				    Replacer.ReplaceValue,
 				    {"Market"}
 				  ),
-				  #"Added Discount Value" = Table.AddColumn(
+				    #"Added Discount Value" = Table.AddColumn(
 				    #"Replaced Market Values",
 				    "Discount Value",
-				    each [Gross Sales] * [Discount],
+				    each [Gross Sales] - [Net Sales],
 				    type number
 				  ),
-				    #"Filtered Rows" = Table.SelectRows(#"Added Discount Value", each true),
-				  #"Added Net Sales" = Table.AddColumn(
-				    #"Filtered Rows",
-				    "Net Sales",
-				    each [Gross Sales] - [Discount Value],
-				    type number
-				  ),
-				  #"Added COGS Column" = Table.AddColumn(
-				    #"Added Net Sales",
+				    #"Added COGS Column" = Table.AddColumn(
+				    #"Added Discount Value",
 				    "COGS",
-				    each [Gross Sales] - [Profit] - [Shipping.Cost],
+				    each [Net Sales] - [Profit],
 				    type number
 				  ),
-				  #"Reordered Columns" = Table.ReorderColumns(
+				    #"Reordered Columns" = Table.ReorderColumns(
 				    #"Added COGS Column",
 				    {
 				      "Category",
